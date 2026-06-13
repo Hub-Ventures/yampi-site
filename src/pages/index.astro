@@ -5,8 +5,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroClaro from '../components/heroes/HeroClaro.astro';
 import HeroOscuro from '../components/heroes/HeroOscuro.astro';
 import HeroSplit from '../components/heroes/HeroSplit.astro';
-import ShotPlaceholder from '../components/ShotPlaceholder.astro';
 import CtaFinal from '../components/CtaFinal.astro';
+import ShotPlaceholder from '../components/ShotPlaceholder.astro';
 import Icon from '../components/Icon.astro';
 import data from '../data/modules.json';
 import { CAT_ORDER, CAT_COLOR, groupByCat } from '../lib/categories.js';
@@ -70,10 +70,51 @@ const capacidades = [
     </section>
   )}
 
+  <section class="section" id="ciclo" data-screen-label="El ciclo completo">
+    <div class="wrap">
+      <span class="kicker reveal">Una sola plataforma</span>
+      <h2 class="display-lg reveal" style="margin-top: 14px;">Todo el ciclo inmobiliario,<br />conectado de punta a punta</h2>
+      <p class="lede reveal" style="max-width: 700px; margin-top: 18px;">Cada etapa alimenta la siguiente sin exportar datos ni cambiar de herramienta: el lead que entra por WhatsApp termina como un arriendo que se cobra y se desembolsa solo.</p>
+      <div class="cycle reveal">
+        <div class="cycle-line"></div>
+        <div class="cycle-step">
+          <div class="cycle-node" style="background: var(--blue-3); color: var(--blue-11);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg></div>
+          <span class="cycle-num">01</span>
+          <h4>Captación</h4>
+          <p>Leads de WhatsApp, Instagram y web a un solo pipeline.</p>
+        </div>
+        <div class="cycle-step">
+          <div class="cycle-node" style="background: var(--iris-3); color: var(--iris-11);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" /><path d="M9 22v-4h6v4" /><path d="M8 6h.01M16 6h.01M8 10h.01M16 10h.01" /></svg></div>
+          <span class="cycle-num">02</span>
+          <h4>Propiedades</h4>
+          <p>Inventario y disponibilidad enlazados al negocio.</p>
+        </div>
+        <div class="cycle-step">
+          <div class="cycle-node" style="background: var(--yampi-2); color: var(--yampi-11);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><path d="m9 15 2 2 4-4" /></svg></div>
+          <span class="cycle-num">03</span>
+          <h4>Contratos</h4>
+          <p>Firma electrónica que activa el cobro al cerrar.</p>
+        </div>
+        <div class="cycle-step">
+          <div class="cycle-node" style="background: var(--amber-3); color: var(--amber-11);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5" /><path d="m21 2-9.6 9.6" /><path d="m15.5 7.5 3 3L22 7l-3-3" /></svg></div>
+          <span class="cycle-num">04</span>
+          <h4>Arriendo</h4>
+          <p>Tenencia activa, con agenda y seguimiento integrados.</p>
+        </div>
+        <div class="cycle-step">
+          <div class="cycle-node" style="background: var(--teal-3); color: var(--teal-11);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg></div>
+          <span class="cycle-num">05</span>
+          <h4>Cobros</h4>
+          <p>Recaudo recurrente, conciliación y desembolso al dueño.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="modulos" data-screen-label="Módulos por categoría">
     <div class="wrap">
       <h2 class="display-lg reveal">Empieza por un módulo,<br />o úsalo todo en conjunto.</h2>
-      <p class="lede reveal" style="max-width: 680px; margin-top: 20px;">Dieciséis módulos construidos para el flujo inmobiliario real — cada uno resuelve un problema concreto, y juntos eliminan todas tus herramientas sueltas.</p>
+      <p class="lede reveal" style="max-width: 720px; margin-top: 20px;">Dieciséis módulos que cubren el ciclo inmobiliario completo —atención, ventas, contratos, cobros y automatización—. Juntos reemplazan tu CRM, tu bandeja de WhatsApp, tu firma electrónica, tu pasarela de cobros y las hojas de cálculo, sin integraciones frágiles entre ellos.</p>
       <div class="cat-grid">
         {CAT_ORDER.map((c, i) => (
           <div class="card cat-card reveal">
@@ -101,6 +142,7 @@ const capacidades = [
     <div class="wrap">
       <span class="kicker reveal">Capacidades</span>
       <h2 class="display-lg reveal" style="margin-top: 14px; margin-bottom: 8px;">Todo lo que Yampi hace<br />por tu inmobiliaria</h2>
+      <p class="lede reveal" style="max-width: 680px; margin-bottom: 8px;">Cuatro frentes que cubren el ciclo de punta a punta: desde el primer “hola” por WhatsApp hasta el desembolso al propietario.</p>
 
       {capacidades.map((cap) => (
         <div class={`cap-block reveal${cap.flip ? ' flip' : ''}`}>
@@ -120,6 +162,41 @@ const capacidades = [
           <ShotPlaceholder height={400} label={cap.label} />
         </div>
       ))}
+    </div>
+  </section>
+
+  <section class="section section-tint" id="reemplazas" data-screen-label="Lo que reemplazas">
+    <div class="wrap">
+      <div style="text-align: center; max-width: 720px; margin: 0 auto;">
+        <span class="kicker reveal">Consolidación</span>
+        <h2 class="display-lg reveal" style="margin-top: 14px;">Una plataforma en vez de<br />seis herramientas sueltas</h2>
+        <p class="lede reveal" style="margin-top: 18px;">Cada herramienta que conectas a mano es un punto de fuga: datos que no cuadran, leads que se enfrían y horas de copiar y pegar. Yampi reúne toda la operación en una sola cuenta.</p>
+      </div>
+      <div class="swap reveal">
+        <div class="swap-col swap-old">
+          <span class="swap-tag">Tu stack hoy</span>
+          <ul>
+            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg></span>CRM genérico</li>
+            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg></span>Bandeja de WhatsApp por separado</li>
+            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg></span>Excel de cobros y cartera</li>
+            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg></span>Firma de contratos por correo</li>
+            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg></span>Pasarela de pagos aparte</li>
+            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg></span>Hoja de propiedades y portales</li>
+          </ul>
+        </div>
+        <div class="swap-arrow"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></div>
+        <div class="swap-col swap-new">
+          <span class="swap-tag swap-tag-brand">Con Yampi</span>
+          <ul>
+            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span>Comunicación omnicanal con IA</li>
+            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span>Contactos, propiedades y pipeline</li>
+            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span>Contratos con firma electrónica</li>
+            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span>Tesorería: cobros y desembolsos</li>
+            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span>Automatizaciones y reportes</li>
+            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span>Una sola cuenta, sin integraciones</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
