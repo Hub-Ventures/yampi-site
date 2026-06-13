@@ -1,0 +1,118 @@
+---
+// Página de módulo — una ruta estática por cada entrada de modules.json.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ShotPlaceholder from '../../components/ShotPlaceholder.astro';
+import CtaFinal from '../../components/CtaFinal.astro';
+import Icon from '../../components/Icon.astro';
+import data from '../../data/modules.json';
+import { CAT_COLOR, CAT_BG, CAT_TEXT } from '../../lib/categories.js';
+
+export function getStaticPaths() {
+  return data.modules.map((mod, index) => ({
+    params: { slug: mod.slug },
+    props: { mod, index },
+  }));
+}
+
+const { mod, index } = Astro.props;
+const cat = data.categories[mod.cat];
+const accent = CAT_COLOR[mod.cat];
+const accentBg = CAT_BG[mod.cat];
+const accentText = CAT_TEXT[mod.cat];
+const total = data.modules.length;
+const prev = data.modules[(index + total - 1) % total];
+const next = data.modules[(index + 1) % total];
+const colA = mod.features.filter((_, j) => j % 2 === 0);
+const colB = mod.features.filter((_, j) => j % 2 === 1);
+---
+<BaseLayout title={`${mod.name} — Yampi`} description={mod.short}>
+  <main style={`--accent: ${accent};`}>
+
+    <section class="mod-hero" data-screen-label={`${mod.name} — hero`}>
+      <div class="wrap grid">
+        <div>
+          <div class="mod-breadcrumb"><a href="/">Inicio</a> / <a href="/#modulos">{cat.label}</a></div>
+          <span class="chip" style={`background: ${accentBg}; color: ${accentText};`}>
+            <Icon name={mod.icon} size={15} /> {mod.name}
+          </span>
+          <h1 class="display-lg" style="margin-top: 20px;">{mod.h1}</h1>
+          <p class="lede" style="margin-top: 22px;">{mod.sub}</p>
+          <div style="display: flex; gap: 12px; margin-top: 34px;">
+            <a class="btn btn-primary btn-lg" href="#demo">Agenda una demo</a>
+            <a class="btn btn-outline btn-lg" href="#funcionalidades">Ver funcionalidades</a>
+          </div>
+        </div>
+        <ShotPlaceholder src={mod.shot} height={440} label={`Screenshot del módulo ${mod.name}`} alt={mod.name} />
+      </div>
+    </section>
+
+    <section class="section" id="funcionalidades" style="background: var(--bg-card); border-top: 1px solid var(--border-weak); border-bottom: 1px solid var(--border-weak);" data-screen-label={`${mod.name} — funcionalidades`}>
+      <div class="wrap">
+        <span class="kicker reveal" style={`color: ${accentText};`}>Hoja de funcionalidades</span>
+        <h2 class="display-md reveal" style="margin-top: 14px;">Todo lo que incluye este módulo</h2>
+        <div class="feat-grid reveal">
+          {[colA, colB].map((col) => (
+            <div class="sheet">
+              {col.map((f) => (
+                <div class="sheet-row">
+                  <span style={`color: ${accent};`}><Icon name="check" size={18} /></span>
+                  <span>{f}</span>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-screen-label={`${mod.name} — beneficios`}>
+      <div class="wrap">
+        <span class="kicker reveal" style={`color: ${accentText};`}>Beneficios</span>
+        <h2 class="display-md reveal" style="margin-top: 14px;">Lo que gana tu inmobiliaria</h2>
+        <div class="benefit-grid">
+          {mod.benefits.map((b) => (
+            <div class="card reveal">
+              <div class="cat-accent" style={`background: ${accent};`}></div>
+              <h4 style="font-size: 18px; font-weight: 600; color: var(--fg-heading); margin-bottom: 8px;">{b.t}</h4>
+              <p style="font-size: 15px; line-height: 1.6;">{b.d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" data-screen-label={`${mod.name} — por qué Yampi`}>
+      <div class="wrap-narrow">
+        <span class="kicker reveal" style={`color: ${accent};`}>Por qué Yampi y no otro</span>
+        <h2 class="display-md reveal" style="margin-top: 14px; margin-bottom: 32px;">Lo que nadie más te ofrece</h2>
+        {mod.versus.map((v, j) => (
+          <div class="versus-row reveal">
+            <span class="versus-num">{`0${j + 1}`}</span>
+            <p>{v}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <CtaFinal
+      title={`${mod.cta}.`}
+      text={`Agenda 30 minutos y mira ${mod.name} funcionando con casos reales de inmobiliarias como la tuya.`}
+      subject={`Demo de ${mod.name}`}
+      bordered
+    />
+
+    <div class="wrap">
+      <nav class="modnav" data-screen-label={`${mod.name} — navegación entre módulos`}>
+        <a href={`/modulos/${prev.slug}/`}>
+          <span class="dir"><Icon name="arrow-left" size={14} /> Módulo anterior</span>
+          <span class="t">{prev.name}</span>
+        </a>
+        <a class="next" href={`/modulos/${next.slug}/`}>
+          <span class="dir">Módulo siguiente <Icon name="arrow-right" size={14} /></span>
+          <span class="t">{next.name}</span>
+        </a>
+      </nav>
+    </div>
+
+  </main>
+</BaseLayout>

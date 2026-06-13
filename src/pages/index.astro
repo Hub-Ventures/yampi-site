@@ -1,0 +1,127 @@
+---
+// Home del sitio comercial Yampi.
+// Cambia HERO_VARIANT a 'claro' | 'oscuro' | 'split' para usar otra variante de hero.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroClaro from '../components/heroes/HeroClaro.astro';
+import HeroOscuro from '../components/heroes/HeroOscuro.astro';
+import HeroSplit from '../components/heroes/HeroSplit.astro';
+import ShotPlaceholder from '../components/ShotPlaceholder.astro';
+import CtaFinal from '../components/CtaFinal.astro';
+import Icon from '../components/Icon.astro';
+import data from '../data/modules.json';
+import { CAT_ORDER, CAT_COLOR, groupByCat } from '../lib/categories.js';
+
+const HERO_VARIANT = 'claro';
+const MOSTRAR_LOGOS = true;
+
+const byCat = groupByCat(data);
+
+const capacidades = [
+  {
+    num: '01',
+    cat: 'atiende',
+    title: 'Atiende cada lead en segundos, en cualquier canal',
+    text: 'WhatsApp, Instagram, TikTok, email y llamadas en una sola bandeja. Livia, tu asistente IA, califica leads, envía fotos de propiedades y agenda visitas mientras tu equipo duerme.',
+    label: 'Screenshot: bandeja omnicanal con Livia',
+    flip: false,
+  },
+  {
+    num: '02',
+    cat: 'vende',
+    title: 'Convierte tu inventario en negocios cerrados',
+    text: 'Propiedades conectadas al pipeline, visitas que el cliente agenda solo y un perfil público que convierte a cada asesor en una landing de captación. Del primer mensaje a la firma, sin perder el contexto.',
+    label: 'Screenshot: pipeline de oportunidades',
+    flip: true,
+  },
+  {
+    num: '03',
+    cat: 'cobra',
+    title: 'Firma contratos en horas y cobra sin perseguir a nadie',
+    text: 'Firma electrónica con OTP por WhatsApp, contratos que activan la suscripción de cobro automáticamente, pasarelas colombianas con PSE y desembolsos a propietarios sin conciliación manual.',
+    label: 'Screenshot: dashboard de tesorería',
+    flip: false,
+  },
+  {
+    num: '04',
+    cat: 'automatiza',
+    title: 'Escala tu operación sin contratar más gente',
+    text: 'Automatizaciones por eventos, campañas masivas de WhatsApp, reportes en tiempo real y permisos a la medida. La operación crece; el caos no.',
+    label: 'Screenshot: editor de automatizaciones',
+    flip: true,
+  },
+];
+---
+<BaseLayout
+  title="Yampi — CRM Inteligente para Operaciones Inmobiliarias"
+  description="Comunicaciones omnicanal, propiedades, contratos con firma electrónica, cobro de arriendos e IA inmobiliaria — en una sola plataforma para Latinoamérica."
+>
+  {HERO_VARIANT === 'claro' && <HeroClaro />}
+  {HERO_VARIANT === 'oscuro' && <HeroOscuro />}
+  {HERO_VARIANT === 'split' && <HeroSplit />}
+
+  {MOSTRAR_LOGOS && (
+    <section class="logos-band" data-screen-label="Franja de logos">
+      <div class="wrap">
+        <p>Equipos inmobiliarios que operan con Yampi</p>
+        <div class="logos-row">
+          {[1, 2, 3, 4, 5].map(() => <div class="logo-ph">Logo cliente</div>)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section" id="modulos" data-screen-label="Módulos por categoría">
+    <div class="wrap">
+      <h2 class="display-lg reveal">Empieza por un módulo,<br />o úsalo todo en conjunto.</h2>
+      <p class="lede reveal" style="max-width: 680px; margin-top: 20px;">Dieciséis módulos construidos para el flujo inmobiliario real — cada uno resuelve un problema concreto, y juntos eliminan todas tus herramientas sueltas.</p>
+      <div class="cat-grid">
+        {CAT_ORDER.map((c, i) => (
+          <div class="card cat-card reveal">
+            <span class="num">{`0${i + 1}`}</span>
+            <h3>{data.categories[c].label}</h3>
+            <div class="cat-accent" style={`background: ${CAT_COLOR[c]}`}></div>
+            <p class="tagline">{data.categories[c].tagline}</p>
+            <ul>
+              {byCat[c].map((m) => (
+                <li>
+                  <a href={`/modulos/${m.slug}/`}>
+                    <span>{m.name}</span>
+                    <Icon name="arrow-right" size={14} />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="capacidades" style="background: var(--bg-card); border-top: 1px solid var(--border-weak); border-bottom: 1px solid var(--border-weak);" data-screen-label="Capacidades">
+    <div class="wrap">
+      <span class="kicker reveal">Capacidades</span>
+      <h2 class="display-lg reveal" style="margin-top: 14px; margin-bottom: 8px;">Todo lo que Yampi hace<br />por tu inmobiliaria</h2>
+
+      {capacidades.map((cap) => (
+        <div class={`cap-block reveal${cap.flip ? ' flip' : ''}`}>
+          <div class="cap-copy">
+            <span class="num">{cap.num}</span>
+            <h3>{cap.title}</h3>
+            <p>{cap.text}</p>
+            <div class="cap-links">
+              {byCat[cap.cat].map((m) => (
+                <a href={`/modulos/${m.slug}/`}>
+                  <Icon name="arrow-right" size={14} />
+                  <span>{m.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+          <ShotPlaceholder height={400} label={cap.label} />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <CtaFinal title="Mira Yampi funcionando con tus propias propiedades." />
+</BaseLayout>

@@ -1,0 +1,34 @@
+---
+// Nav píldora con mega-menú "Plataforma" construido desde modules.json.
+import data from '../data/modules.json';
+import { CAT_ORDER, CAT_COLOR, groupByCat } from '../lib/categories.js';
+
+const byCat = groupByCat(data);
+---
+<header class="nav-shell">
+  <nav class="nav-pill">
+    <a class="nav-logo" href="/" aria-label="Yampi"><span class="wordmark">yampi</span></a>
+    <div class="nav-links">
+      <button class="nav-item" type="button">
+        Plataforma
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+        <div class="mega">
+          {CAT_ORDER.map((c) => (
+            <div class="mega-col">
+              <h5 style={`color: ${CAT_COLOR[c]}`}>{data.categories[c].label}</h5>
+              {byCat[c].map((m) => (
+                <a href={`/modulos/${m.slug}/`}>{m.name}</a>
+              ))}
+            </div>
+          ))}
+        </div>
+      </button>
+      <a class="nav-item" href="/#capacidades">Por qué Yampi</a>
+      <a class="nav-item" href="/#modulos">Módulos</a>
+    </div>
+    <div class="nav-right">
+      <a class="nav-login" href="https://app.yampi.ai" target="_blank" rel="noopener">Iniciar sesión</a>
+      <a class="btn btn-primary" href="#demo">Agenda una demo</a>
+    </div>
+  </nav>
+</header>

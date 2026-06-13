@@ -1,0 +1,21 @@
+---
+// Hero C — split: texto a la izquierda, mockup a la derecha, fondo lila suave.
+import ShotPlaceholder from '../ShotPlaceholder.astro';
+const { src } = Astro.props;
+---
+<section data-screen-label="Hero split">
+  <div class="hero-split">
+    <div class="wrap grid">
+      <div>
+        <span class="chip" style="background: var(--bg-card);">CRM inteligente para inmobiliarias</span>
+        <h1 class="display-lg" style="margin-top: 20px;">Deja de perseguir leads. Empieza a cerrarlos.</h1>
+        <p class="lede">Cada mensaje, propiedad, contrato y pago de tu operación inmobiliaria — conectados en una sola plataforma con IA que atiende por ti las 24 horas.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#demo">Agenda una demo</a>
+          <a class="btn btn-outline btn-lg" style="background: var(--bg-card);" href="#modulos">Conoce los módulos</a>
+        </div>
+      </div>
+      <ShotPlaceholder src={src} height={460} label="Screenshot: bandeja omnicanal" alt="Bandeja omnicanal de Yampi" />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+---
+// Sección CTA final oscura, reutilizada en home y páginas de módulo.
+const {
+  title = 'Mira Yampi funcionando con tus propias propiedades.',
+  text = 'Agenda 30 minutos con nuestro equipo. Te mostramos la plataforma con casos reales de inmobiliarias como la tuya — sin compromiso.',
+  subject = 'Quiero agendar una demo de Yampi',
+  bordered = false,
+} = Astro.props;
+---
+<section
+  class="section-dark cta-final"
+  id="demo"
+  style={bordered ? 'border-top: 1px solid rgba(255,255,255,0.1);' : undefined}
+>
+  <div class="wrap">
+    <h2 class="display-lg reveal" style="color: var(--fg-on-dark);">{title}</h2>
+    <p class="lede reveal">{text}</p>
+    <div class="hero-actions reveal">
+      <a class="btn btn-on-dark btn-lg" href={`mailto:ventas@yampi.ai?subject=${encodeURIComponent(subject)}`}>Agenda una demo</a>
+      <a class="btn btn-ghost-dark btn-lg" href="https://wa.me/573112345678" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+    </div>
+  </div>
+</section>

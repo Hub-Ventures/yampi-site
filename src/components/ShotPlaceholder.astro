@@ -1,0 +1,10 @@
+---
+// Marco de screenshot de producto. Pasa `src` (p. ej. /screenshots/tesoreria.png)
+// para mostrar la imagen real; sin `src` se muestra un placeholder neutro.
+const { src, alt = '', height = 440, label = 'Screenshot del producto' } = Astro.props;
+---
+<div class="shot-frame">
+  {src
+    ? <img class="shot-img" src={src} alt={alt} style={`height: ${height}px;`} loading="lazy" />
+    : <div class="shot-ph" style={`height: ${height}px;`}><span>{label}</span></div>}
+</div>

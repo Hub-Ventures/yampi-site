@@ -1,0 +1,567 @@
+{
+  "categories": {
+    "atiende": { "label": "Atiende", "color": "blue", "tagline": "Responde en segundos por cualquier canal" },
+    "vende": { "label": "Vende", "color": "yampi", "tagline": "Convierte prospectos en negocios cerrados" },
+    "cobra": { "label": "Cobra", "color": "teal", "tagline": "Firma, cobra y desembolsa sin perseguir a nadie" },
+    "automatiza": { "label": "Automatiza", "color": "iris", "tagline": "Escala tu operación sin contratar más gente" }
+  },
+  "modules": [
+    {
+      "slug": "comunicaciones", "icon": "chat", "cat": "atiende",
+      "name": "Comunicaciones Omnicanal",
+      "short": "WhatsApp, Instagram, TikTok, email y voz en una sola bandeja inteligente.",
+      "h1": "Atiende cada mensaje. No pierdas un solo lead.",
+      "sub": "Unifica WhatsApp, Instagram, Facebook, TikTok, email, web chat, SMS y llamadas de voz en una sola bandeja inteligente. Atiende prospectos y residentes desde donde te escriban — sin cambiar de pestaña.",
+      "cta": "Centraliza tus canales hoy",
+      "features": [
+        "Bandeja de entrada unificada: todas las conversaciones, menciones, participaciones y no atendidas en una sola vista",
+        "8 canales integrados: WhatsApp Cloud API, Facebook Messenger, Instagram DM, TikTok, Email, Web Widget, SMS y llamadas de voz",
+        "Asignación automática de conversaciones por round-robin, carga de trabajo o reglas personalizadas",
+        "Notas privadas internas entre agentes dentro de cada conversación",
+        "Respuestas predefinidas para reducir tiempos de respuesta",
+        "Etiquetas y prioridades para clasificar conversaciones al instante",
+        "Traducción automática de mensajes en tiempo real",
+        "Envío de plantillas aprobadas de WhatsApp directamente desde la conversación",
+        "Transferencia de conversaciones entre agentes, equipos o de bot a humano",
+        "Archivos adjuntos, contactos compartidos, ubicaciones y notas de voz",
+        "Acciones masivas sobre múltiples conversaciones simultáneamente",
+        "Snooze de conversaciones para seguimiento programado",
+        "Carpetas personalizadas con filtros avanzados guardados",
+        "Encuestas CSAT automáticas al resolver una conversación",
+        "Historial completo de conversaciones por contacto"
+      ],
+      "benefits": [
+        { "t": "Cero leads perdidos", "d": "Atiende al prospecto desde cualquier canal donde escriba y elimina la pérdida de leads por demora." },
+        { "t": "Un solo lugar para todo el equipo", "d": "Ventas, cobranza y administración operan desde la misma bandeja, con visibilidad total." },
+        { "t": "Supervisión en tiempo real", "d": "Mira la carga de cada agente al instante y redistribuye conversaciones cuando haga falta." },
+        { "t": "Primera respuesta más rápida", "d": "Reduce drásticamente el tiempo de primera respuesta — el factor crítico en conversión inmobiliaria." },
+        { "t": "Trazabilidad completa", "d": "Cada interacción con propietarios, arrendatarios y prospectos queda registrada." }
+      ],
+      "versus": [
+        "Único CRM inmobiliario con 8 canales nativos, incluyendo TikTok e Instagram DM — donde el comprador joven busca propiedades",
+        "Asignación inteligente por carga de trabajo: ningún lead de alto valor queda sin atender",
+        "Traducción en tiempo real para atender inversionistas extranjeros sin barreras de idioma",
+        "Transferencia bot-a-humano sin fricción: el prospecto nunca siente la transición",
+        "Carpetas y notas privadas para workflows por proyecto: preventa, entrega y posventa"
+      ]
+    },
+    {
+      "slug": "contactos", "icon": "users", "cat": "vende",
+      "name": "CRM de Contactos y Empresas",
+      "short": "Prospectos, propietarios y arrendatarios con perfiles enriquecidos y control de acceso.",
+      "h1": "Conoce a cada cliente antes de saludarlo.",
+      "sub": "Base de datos inteligente de prospectos, propietarios, arrendatarios y empresas: perfiles enriquecidos, segmentación avanzada, control de acceso a leads y vinculación directa con propiedades, contratos y oportunidades.",
+      "cta": "Ordena tu base de datos",
+      "features": [
+        "Perfiles completos: nombre, email, teléfono, empresa, ubicación y atributos personalizados ilimitados",
+        "Módulo de empresas con perfil corporativo, dominio y contactos vinculados",
+        "Segmentos personalizados con filtros guardados que se actualizan solos",
+        "Historial completo de conversaciones previas por contacto",
+        "Notas para registrar la información clave de cada lead o cliente",
+        "Fusión de contactos duplicados con historial consolidado",
+        "Solicitud de acceso a contactos: el agente solicita, el administrador aprueba",
+        "Modo de acceso limitado: datos restringidos hasta otorgar acceso al lead",
+        "Llamada directa al contacto desde su perfil",
+        "Vinculación nativa con propiedades, oportunidades y contratos",
+        "Importación y exportación masiva de contactos"
+      ],
+      "benefits": [
+        { "t": "Leads sin conflictos", "d": "Controla la asignación de leads y evita la duplicidad de gestión entre asesores." },
+        { "t": "Campañas dirigidas", "d": "Segmenta por arriendo vs. compra, zona o rango de precio y lanza campañas que convierten." },
+        { "t": "El cliente no se repite", "d": "Historial unificado: el prospecto nunca vuelve a contar su historia desde cero." },
+        { "t": "Base de datos limpia", "d": "La fusión de duplicados elimina el caos de leads que llegan por múltiples fuentes." },
+        { "t": "Interacciones personalizadas", "d": "Perfiles enriquecidos para personalizar cada contacto y subir la tasa de conversión." }
+      ],
+      "versus": [
+        "Control de acceso a leads único en el mercado: protege la cartera de cada asesor y evita conflictos internos",
+        "Contactos vinculados nativamente con propiedades, contratos y cobros — sin campos personalizados forzados",
+        "Segmentos dinámicos que se actualizan automáticamente, no listas estáticas",
+        "Fusión inteligente de duplicados con historial consolidado, no solo eliminación de registros",
+        "Empresas como entidad separada para gestionar relaciones B2B con constructoras, fondos y corporativos"
+      ]
+    },
+    {
+      "slug": "propiedades", "icon": "building", "cat": "vende",
+      "name": "Propiedades",
+      "short": "Tu inventario inmobiliario completo, conectado a ventas, contratos y cobros.",
+      "h1": "Tu inventario, listo para vender en un clic.",
+      "sub": "Fichas detalladas por propiedad con galería fotográfica, estados de mercado en tiempo real, roles por inmueble y compartir por WhatsApp, email o link. Conectado de nacimiento a tu pipeline, contratos y cobros.",
+      "cta": "Centraliza tu inventario",
+      "features": [
+        "Ficha completa: dirección, área, habitaciones, baños, parqueaderos, matrícula, zona, ciudad y coordenadas GPS",
+        "8 tipos de inmueble: apartamento, casa, oficina, comercial, terreno, bodega, finca y edificio",
+        "Tipos de oferta: arriendo, venta o ambos",
+        "Estados de mercado en tiempo real: disponible, en reserva, arrendado, vendido",
+        "Galería fotográfica con carga múltiple de imágenes",
+        "Vista de galería y vista de lista para navegar el inventario",
+        "8 roles por propiedad: propietario, arrendatario, administrador PH, proveedor, comprador, vendedor, prospecto y codeudor",
+        "Compartir propiedad vía WhatsApp, email o enlace directo",
+        "Filtros avanzados por etiqueta, estado, tipo de oferta, tipo de inmueble y responsable",
+        "Amenidades y cuota de administración configurables",
+        "Sincronización bidireccional de inventario con Wasi",
+        "Gestión multicuenta: una propiedad administrada por múltiples cuentas"
+      ],
+      "benefits": [
+        { "t": "Adiós a las hojas de cálculo", "d": "Inventario centralizado: se acabó la información dispersa en Excel, portales y carpetas." },
+        { "t": "Nunca ofrezcas lo vendido", "d": "Estados de mercado en tiempo real evitan ofrecer propiedades ya arrendadas o vendidas." },
+        { "t": "La ficha como herramienta de venta", "d": "Comparte por WhatsApp con un clic y acelera el ciclo de venta." },
+        { "t": "Roles claros por inmueble", "d": "Sabes exactamente quién es propietario, arrendatario y administrador en todo momento." },
+        { "t": "Sin doble digitación", "d": "La integración con Wasi sincroniza tu inventario con los portales automáticamente." }
+      ],
+      "versus": [
+        "Único CRM con gestión de propiedades nativa conectada a comunicaciones y cobros — sin integraciones externas",
+        "8 roles por propiedad que reflejan el negocio real colombiano: codeudor y administrador PH incluidos",
+        "Sincronización con Wasi para publicar y actualizar inventario en portales automáticamente",
+        "Galería + compartir por WhatsApp convierten la ficha en herramienta de venta activa",
+        "Filtros multi-criterio: encuentra la propiedad ideal para cada prospecto en segundos"
+      ]
+    },
+    {
+      "slug": "calendario", "icon": "calendar", "cat": "vende",
+      "name": "Calendario y Agendamiento",
+      "short": "Visitas, entregas, avalúos y firmas con links de reserva pública.",
+      "h1": "Deja que tus clientes agenden la visita solos.",
+      "sub": "Agenda inmobiliaria con tipos de evento especializados — visitas, entregas, avalúos, firmas — links de reserva pública para auto-agendamiento y sincronización con Google Calendar.",
+      "cta": "Libera horas de coordinación",
+      "features": [
+        "Vistas de día y semana para gestionar la agenda",
+        "8 tipos de evento inmobiliarios: visita, llamada, seguimiento, reunión, firma, inspección, entrega y avalúo",
+        "Estados de evento: programado, confirmado, completado, cancelado y no asistió",
+        "Eventos vinculados a propiedad, contacto y oportunidad",
+        "Links de reserva públicos para que el cliente auto-agende visitas o llamadas",
+        "Confirmación de reservas: revisa y acepta o rechaza solicitudes",
+        "Disponibilidad horaria configurable por agente",
+        "Tipos de evento personalizables con duración, tiempos buffer y auto-reserva",
+        "Links de reserva con slug personalizado por agente",
+        "Integración con Google Calendar y Cal.com",
+        "Recordatorios automáticos antes de cada evento"
+      ],
+      "benefits": [
+        { "t": "Cero coordinación manual", "d": "Elimina las horas que asesores y asistentes gastan cuadrando visitas por WhatsApp." },
+        { "t": "El cliente agenda cuando quiere", "d": "Links de reserva pública disponibles 24/7 que aumentan la tasa de conversión." },
+        { "t": "Historial por inmueble", "d": "Cada visita queda registrada en el historial de la propiedad." },
+        { "t": "Mide la asistencia", "d": "El estado 'no asistió' te permite medir y mejorar la tasa de asistencia a visitas." },
+        { "t": "Una sola agenda", "d": "Sincronización con Google Calendar: sin conflictos entre lo personal y lo laboral." }
+      ],
+      "versus": [
+        "Tipos de evento del flujo inmobiliario real: avalúo, entrega de inmueble y firma no existen en calendarios genéricos",
+        "Auto-agendamiento con confirmación: se acabó el ir y venir por WhatsApp para coordinar visitas",
+        "Cada evento vinculado a propiedad, contacto y oportunidad — trazabilidad total del proceso comercial",
+        "Tiempos buffer entre eventos: agenda pensada para los desplazamientos reales entre inmuebles",
+        "Links de reserva personalizados que refuerzan la marca de cada asesor"
+      ]
+    },
+    {
+      "slug": "oportunidades", "icon": "kanban", "cat": "vende",
+      "name": "Oportunidades · Pipeline de Ventas",
+      "short": "Kanban visual de negocios con valores, probabilidades y forecasting.",
+      "h1": "Mira tu embudo completo. Cierra más negocios.",
+      "sub": "Tablero Kanban de negocios inmobiliarios con etapas personalizables, valores esperados, probabilidad de cierre y vinculación directa con propiedades, contactos y contratos.",
+      "cta": "Toma el control de tu pipeline",
+      "features": [
+        "Tablero Kanban con drag-and-drop para mover negocios entre etapas",
+        "Vista de lista tabular con filtros avanzados",
+        "Etapas configurables: prospección, calificación, propuesta, negociación, ganado, perdido",
+        "Campos completos: valor esperado, probabilidad de cierre, fecha estimada, agente, contacto, empresa y propiedad",
+        "Tipo de oportunidad venta o arriendo en el mismo pipeline",
+        "Pipelines personalizados con columnas configurables",
+        "Acciones directas desde la tarjeta: mensaje, llamada, evento, recordatorio o nota",
+        "Timeline completo de actividad: cambios de etapa, propietario, eventos y notas",
+        "Reportes dedicados con analítica de pipeline",
+        "Filtros por propietario, empresa y etapa",
+        "Automatizaciones disparadas por creación, actualización o cambio de etapa"
+      ],
+      "benefits": [
+        { "t": "Decisiones con datos", "d": "Visibilidad total del embudo para que gerencia decida con números, no intuición." },
+        { "t": "Contexto del inmueble siempre", "d": "Cada negocio vinculado a su propiedad: nunca pierdas de vista qué está en juego." },
+        { "t": "Accountability real", "d": "El timeline muestra exactamente qué acciones se han tomado en cada deal." },
+        { "t": "Forecasting financiero", "d": "Probabilidad y valor esperado para proyectar ingresos del pipeline." },
+        { "t": "Seguimiento sin memoria", "d": "Automatizaciones por etapa: cada negocio avanza sin depender del recuerdo del asesor." }
+      ],
+      "versus": [
+        "Pipeline inmobiliario nativo que vincula negocio-propiedad-contacto-contrato sin configuración extra",
+        "Venta y arriendo en el mismo pipeline, con tipo de oportunidad nativo",
+        "Automatizaciones por etapa con acciones inmobiliarias: crear visita, asignar propiedad, notificar equipo",
+        "Reportes con granularidad de agente, etapa y período para medir efectividad comercial real",
+        "Llama, escribe y agenda desde el pipeline sin salir de la plataforma"
+      ]
+    },
+    {
+      "slug": "contratos", "icon": "signature", "cat": "cobra",
+      "name": "Contratos y Firma Electrónica",
+      "short": "Plantillas PDF, firma con OTP por WhatsApp y extracción de datos por IA.",
+      "h1": "Firma contratos en horas, no en semanas.",
+      "sub": "Gestión integral de contratos con plantillas PDF editables, firma electrónica verificada por OTP de WhatsApp, extracción automática de datos por IA y seguimiento de cada firma.",
+      "cta": "Digitaliza tus contratos",
+      "features": [
+        "Plantillas de contrato sobre PDF con campos de texto, firma, fecha y checkbox",
+        "Posicionamiento visual de campos sobre el documento",
+        "Roles de firmantes: arrendatario, administrador, codeudor y roles personalizados",
+        "Envío único o plantilla reutilizable",
+        "Vistas de galería, tablero y lista para las firmas activas",
+        "Seguimiento de estado de firma por cada firmante",
+        "Verificación OTP vía WhatsApp para validar la identidad del firmante",
+        "Generación automática de certificados de firma",
+        "Pre-firmados: carga contratos ya firmados físicamente",
+        "Extracción automática de datos por IA desde PDFs: propiedad, contacto, arrendatario, codeudor",
+        "Vinculación automática con propiedades, contactos y suscripciones de tesorería",
+        "Tipos de contrato: arriendo, NDA, acuerdo de servicio, laboral y compraventa",
+        "Webhooks para eventos de contrato",
+        "Recordatorios automáticos de firma pendiente",
+        "Delegación de firma entre firmantes"
+      ],
+      "benefits": [
+        { "t": "De semanas a horas", "d": "Elimina el proceso físico de firmas y cierra contratos el mismo día." },
+        { "t": "Seguridad sin apps", "d": "OTP por WhatsApp: respaldo jurídico sin que el firmante instale nada." },
+        { "t": "Digitaliza tu histórico", "d": "La IA extrae los datos de contratos escaneados sin captura manual." },
+        { "t": "Expediente digital por inmueble", "d": "Contrato, propiedad y arrendatario vinculados en un solo expediente." },
+        { "t": "Nada queda sin firmar", "d": "Recordatorios automáticos reducen los contratos olvidados." }
+      ],
+      "versus": [
+        "Firma electrónica con OTP por WhatsApp única en el mercado — sin DocuSign ni apps adicionales",
+        "Extracción de datos por IA desde contratos escaneados que no existe en ninguna otra plataforma inmobiliaria",
+        "Plantillas reutilizables con campos visuales: nunca más crear un contrato desde cero",
+        "Trazabilidad con certificado, timestamp y verificación de identidad para respaldo jurídico",
+        "Integración nativa con tesorería: el contrato firmado activa la suscripción de cobro"
+      ]
+    },
+    {
+      "slug": "tesoreria", "icon": "coins", "cat": "cobra",
+      "name": "Tesorería y Cobros",
+      "short": "Cobro recurrente de arriendos con pasarelas colombianas y desembolsos.",
+      "h1": "Cobra cada arriendo sin perseguir a nadie.",
+      "sub": "Suscripciones recurrentes de arriendo con pasarelas de pago colombianas — Wampi, Payco, Bold — seguimiento de pagos, desembolsos a propietarios y billetera digital para arrendatarios.",
+      "cta": "Automatiza tu cartera",
+      "features": [
+        "Dashboard financiero: ingresos cobrados, pagos pendientes, fallidos y tasa de éxito",
+        "Suscripciones recurrentes vinculadas a propiedad, arrendatario y contrato",
+        "Configuración por suscripción: monto, moneda, día de cobro y modo manual o automático",
+        "Métodos de pago: tarjeta de crédito, PSE, efectivo y cheque",
+        "Recargo configurable para pagos con tarjeta",
+        "Estados de suscripción: activa, próxima, pendiente, pagada, vencida, pausada, cancelada, finalizada",
+        "Estados de pago detallados: pagado, pendiente, penalizado, mora 30/60/90 días y siniestro",
+        "Seguimiento de cada ciclo de cobro por suscripción",
+        "Desembolsos: seguimiento de pagos a propietarios",
+        "Reglas de tesorería para automatizar cobros y penalizaciones",
+        "Pasarelas integradas: Wampi, Payco y Bold con sandbox y producción",
+        "Billetera digital con tokenización segura de tarjeta para arrendatarios",
+        "Links de pago personalizados",
+        "Canales de desembolso: externo, interno, manual y payout Wampi"
+      ],
+      "benefits": [
+        { "t": "Cobro en piloto automático", "d": "Elimina el seguimiento manual mes a mes que consume horas administrativas." },
+        { "t": "Salud de cartera al instante", "d": "Dashboard financiero en tiempo real para gerencia." },
+        { "t": "Mora con gestión escalonada", "d": "Clasificación 30/60/90/siniestro para actuar a tiempo sobre cartera vencida." },
+        { "t": "Pagar sin fricción", "d": "El arrendatario guarda su tarjeta una vez y el cobro sale solo." },
+        { "t": "Desembolsos sin conciliación", "d": "Pagos a propietarios automáticos, sin cruces manuales." }
+      ],
+      "versus": [
+        "Único CRM inmobiliario con tesorería nativa: cobro, seguimiento y desembolso en un solo lugar",
+        "Pasarelas colombianas nativas con PSE — lo que las soluciones internacionales no soportan",
+        "Clasificación de mora hasta siniestro, fiel a la realidad de la cartera colombiana",
+        "Cadena de trazabilidad financiera: suscripción-contrato-propiedad-arrendatario",
+        "Billetera con tokenización para cobro automático sin pagos manuales mensuales"
+      ]
+    },
+    {
+      "slug": "livia", "icon": "sparkle", "cat": "atiende",
+      "name": "Livia · Asistente IA",
+      "short": "IA inmobiliaria que busca propiedades, agenda visitas y califica leads 24/7.",
+      "h1": "Contrata a Livia. Trabaja 24/7 y nunca pide vacaciones.",
+      "sub": "Asistente de inteligencia artificial con 10 escenarios inmobiliarios predefinidos: busca propiedades, envía fotos, agenda visitas, califica leads y atiende en todos tus canales — de día y de noche.",
+      "cta": "Activa tu asistente IA",
+      "features": [
+        "Múltiples asistentes configurables: personalidad, instrucciones y modelo de lenguaje",
+        "Asignación de asistentes por canal: WhatsApp, web chat, Instagram y más",
+        "Playground para probar conversaciones antes de activar",
+        "Guardrails de seguridad y lineamientos de respuesta",
+        "Base de conocimiento con documentos PDF y URLs",
+        "FAQs generadas automáticamente desde tus documentos",
+        "10 escenarios inmobiliarios: recomendar propiedades, enviar fotos, agendar y modificar visitas, calificar leads, seguimiento de oportunidades, incidentes, consultas administrativas, referidos y resolución",
+        "Herramientas personalizadas: integraciones HTTP que la IA puede invocar",
+        "Copilot privado para agentes: sugiere respuestas y ejecuta acciones",
+        "Herramientas nativas: búsqueda de propiedades, fotos, disponibilidad, oportunidades, eventos y notas",
+        "Transferencia inteligente de IA a humano con contexto completo",
+        "Resolución automática de conversaciones evaluada por IA",
+        "Reescritura de mensajes en tono casual, profesional, amigable o seguro",
+        "Transcripción automática de notas de voz",
+        "Sugerencia automática de etiquetas según el contenido"
+      ],
+      "benefits": [
+        { "t": "Atención 24/7 sin nómina extra", "d": "La IA responde fuera de horario, justo cuando llegan más consultas." },
+        { "t": "Solo leads calificados", "d": "Tus asesores reciben prospectos con perfil real de compra." },
+        { "t": "Visitas que se agendan solas", "d": "Livia coordina la visita entre prospecto y asesor sin cuellos de botella." },
+        { "t": "Agentes más rápidos", "d": "Copilot sugiere respuestas contextuales en tiempo real." },
+        { "t": "Respuestas siempre consistentes", "d": "Base de conocimiento actualizada sobre proyectos, precios y disponibilidad." }
+      ],
+      "versus": [
+        "10 escenarios inmobiliarios predefinidos: ningún otro CRM incluye workflows de IA para el sector",
+        "La IA busca propiedades, muestra fotos, agenda visitas y crea oportunidades — no solo responde preguntas",
+        "Herramientas personalizadas para conectar la IA con tu ERP, portal o inventario",
+        "Handoff bot-a-humano con resumen de la conversación y acciones realizadas",
+        "Modelos de OpenAI, Anthropic y Google para elegir el balance entre costo y calidad"
+      ]
+    },
+    {
+      "slug": "automatizaciones", "icon": "zap", "cat": "automatiza",
+      "name": "Automatizaciones y Macros",
+      "short": "Reglas por eventos con condiciones AND/OR y acciones encadenadas.",
+      "h1": "Pon tu operación en piloto automático.",
+      "sub": "Motor de reglas y macros que automatiza asignación, etiquetado, notificación y seguimiento de conversaciones y oportunidades — con condiciones avanzadas y sin programar una sola línea.",
+      "cta": "Elimina el trabajo repetitivo",
+      "features": [
+        "Reglas disparadas por eventos: conversación creada, abierta o resuelta; mensaje creado; oportunidad creada o cambio de etapa",
+        "Condiciones por contenido, email, país, idioma, inbox, equipo, agente, etiquetas, prioridad y más",
+        "Condiciones de oportunidades: etapa, propietario, valor, probabilidad y razón de pérdida",
+        "Operadores lógicos AND/OR para combinar condiciones",
+        "Atributos personalizados como condiciones dinámicas",
+        "Acciones de mensajería: enviar mensaje, adjunto o nota privada",
+        "Acciones de ruteo: asignar agente o equipo",
+        "Acciones de estado: resolver, abrir, pendiente, snooze o silenciar",
+        "Acciones de clasificación: etiquetas y prioridad",
+        "Acciones de comunicación: email al equipo, transcripción o webhook",
+        "Acciones de oportunidades: actualizar etapa, asignar propietario, crear oportunidad",
+        "Macros: secuencias de acciones que el agente ejecuta con un clic",
+        "Macros personales o compartidas con el equipo",
+        "Clonar, activar/desactivar y buscar automatizaciones"
+      ],
+      "benefits": [
+        { "t": "Recupera el 40% del tiempo", "d": "Elimina las tareas repetitivas que consumen la jornada de un asesor." },
+        { "t": "Consistencia operativa", "d": "Cada lead recibe el mismo tratamiento, sin depender del criterio individual." },
+        { "t": "Escalamiento automático", "d": "Conversaciones sin respuesta se reasignan solas: ningún lead se pierde." },
+        { "t": "Onboarding instantáneo", "d": "Con macros, los agentes nuevos ejecutan procesos complejos desde el día uno." },
+        { "t": "Pipeline que se mueve solo", "d": "Al ganar un negocio se dispara la creación del contrato automáticamente." }
+      ],
+      "versus": [
+        "Automatizaciones sobre conversaciones Y oportunidades: las herramientas de comunicación no tienen pipeline",
+        "Condiciones sobre atributos personalizados: reglas por proyecto, zona o tipo de inmueble",
+        "Macros encadenadas (etiquetar + asignar + responder) que reemplazan procesos de múltiples pasos",
+        "Reglas tan granulares como: WhatsApp + Bogotá + 'arriendo' → equipo arriendos Bogotá",
+        "Webhooks en acciones para conectar con cualquier sistema externo sin desarrollo"
+      ]
+    },
+    {
+      "slug": "campanas", "icon": "megaphone", "cat": "automatiza",
+      "name": "Campañas de Marketing",
+      "short": "Campañas masivas por WhatsApp, SMS y chat proactivo en tu web.",
+      "h1": "Reactiva prospectos fríos a escala.",
+      "sub": "Campañas proactivas por WhatsApp, SMS y chat en vivo: mensajes masivos a segmentos de contactos, plantillas aprobadas y mensajes en tu sitio web según comportamiento.",
+      "cta": "Lanza tu primera campaña",
+      "features": [
+        "Campañas de chat en vivo según URL visitada y tiempo en página",
+        "Campañas SMS masivas a segmentos de contactos",
+        "Campañas WhatsApp con plantillas aprobadas de WhatsApp Business",
+        "Segmentación de audiencia por filtros de contacto",
+        "Programación de envío en fecha y hora específica",
+        "Activación solo en horario laboral, configurable",
+        "Plantillas por categoría: utilidad, marketing y autenticación",
+        "Gestión de plantillas con estados: aprobada, rechazada, pausada, deshabilitada",
+        "Selección de remitente: bot o agente"
+      ],
+      "benefits": [
+        { "t": "Despierta tu base de datos", "d": "Reactiva prospectos fríos con mensajes personalizados a escala por WhatsApp." },
+        { "t": "Captura visitantes silenciosos", "d": "Mensajes proactivos en la web abordan a quien navega listados sin contactar." },
+        { "t": "Campañas quirúrgicas", "d": "'Nuevas propiedades en tu zona' solo a los interesados en esa zona." },
+        { "t": "Envíos en el mejor momento", "d": "Programa campañas para los horarios de mayor apertura, sin estar conectado." }
+      ],
+      "versus": [
+        "Campañas WhatsApp nativas con plantillas aprobadas, sin herramientas externas",
+        "Chat proactivo por URL: activa mensajes cuando el visitante está en la página del proyecto",
+        "La respuesta del prospecto llega directo a tu bandeja, no a un sistema separado",
+        "Gestión de plantillas integrada: olvídate de entrar al Business Manager de Meta para cada cambio"
+      ]
+    },
+    {
+      "slug": "centro-ayuda", "icon": "book", "cat": "atiende",
+      "name": "Centro de Ayuda",
+      "short": "Portal de autoservicio con tu marca, conectado a la IA.",
+      "h1": "Responde antes de que te pregunten.",
+      "sub": "Portal de autoservicio con artículos por categorías para que propietarios, arrendatarios y prospectos resuelvan sus dudas solos — con tu marca y tu dominio.",
+      "cta": "Publica tu centro de ayuda",
+      "features": [
+        "Múltiples portales de ayuda con dominio personalizado",
+        "Artículos con editor enriquecido y estados: publicado, borrador, archivado",
+        "Categorías jerárquicas padre/hijo para organizar contenido",
+        "Soporte multilenguaje con traducciones por artículo",
+        "SEO por artículo: meta título, descripción y etiquetas",
+        "Carga de imágenes en artículos",
+        "Autor asignado por artículo",
+        "Marca personalizada: color, logo y título de página",
+        "SSL para dominios personalizados",
+        "Integración con Livia: la IA responde citando tus artículos"
+      ],
+      "benefits": [
+        { "t": "Menos tickets de soporte", "d": "Arrendatarios resuelven dudas de pagos, mantenimiento y trámites por sí mismos." },
+        { "t": "Tráfico orgánico", "d": "Artículos SEO-optimizados atraen a quienes buscan información inmobiliaria." },
+        { "t": "Imagen profesional", "d": "Portal con tu marca que refuerza la confianza en tu inmobiliaria." },
+        { "t": "IA más precisa", "d": "Livia responde con links a artículos específicos de tu base de conocimiento." }
+      ],
+      "versus": [
+        "Dominio propio y marca personalizada, no un subdominio genérico",
+        "Integración nativa con IA: tu centro de ayuda se vuelve conocimiento activo, no un repositorio pasivo",
+        "Multilenguaje nativo para clientes internacionales",
+        "Categorías jerárquicas por tipo de usuario: propietario, arrendatario, comprador"
+      ]
+    },
+    {
+      "slug": "reportes", "icon": "chart", "cat": "automatiza",
+      "name": "Reportes y Analítica",
+      "short": "Métricas en tiempo real de conversaciones, agentes, IA, SLA y pipeline.",
+      "h1": "Decide con datos, no con corazonadas.",
+      "sub": "Suite completa de reportes en tiempo real: conversaciones, agentes, canales, equipos, satisfacción, SLA, rendimiento de la IA y pipeline de oportunidades.",
+      "cta": "Mide tu operación completa",
+      "features": [
+        "Dashboard en vivo con métricas en tiempo real",
+        "Reportes de conversaciones: volumen, mensajes, primera respuesta y resolución",
+        "Reportes por agente con rendimiento individual",
+        "Reportes por canal y por equipo",
+        "Reportes por etiqueta con métricas segmentadas",
+        "Reportes CSAT: calificaciones y feedback de clientes",
+        "Reportes de bot: conversaciones resueltas por IA y transferencias a humano",
+        "Reportes SLA de cumplimiento de tiempos",
+        "Reportes de oportunidades con analítica del pipeline",
+        "Filtros por rango de fecha y agrupación por día, semana, mes o año",
+        "Descarga en CSV para análisis externo",
+        "Resumen de propiedades: total, ocupadas, vacantes y tasa de ocupación",
+        "Resumen financiero: suscripciones activas, ingresos esperados, recaudado y tasa de éxito"
+      ],
+      "benefits": [
+        { "t": "Cuellos de botella visibles", "d": "Identifica problemas operativos antes de que escalen." },
+        { "t": "Reconoce a los mejores", "d": "Métricas por agente que crean accountability en el equipo." },
+        { "t": "Promesas que se cumplen", "d": "Reportes SLA para garantizar el nivel de servicio comprometido." },
+        { "t": "El ROI de tu IA", "d": "Mira cuántas conversaciones resuelve Livia sin intervención humana." },
+        { "t": "Vista ejecutiva del negocio", "d": "Tasa de ocupación y resumen financiero en un solo dashboard." }
+      ],
+      "versus": [
+        "Métricas inmobiliarias nativas — ocupación, cartera, pipeline — que no existen en CRMs genéricos",
+        "Métricas de handoff de IA para optimizar escenarios y reducir dependencia de agentes",
+        "Funnel completo medible: de lead a cierre, conversaciones y oportunidades juntas",
+        "CSV descargable: reportes personalizados sin equipo de BI",
+        "CSAT con feedback textual para encontrar puntos de dolor específicos"
+      ]
+    },
+    {
+      "slug": "sla", "icon": "clock", "cat": "atiende",
+      "name": "SLA · Niveles de Servicio",
+      "short": "Umbrales de respuesta y resolución con alertas automáticas.",
+      "h1": "Promete tiempos de respuesta. Y cúmplelos.",
+      "sub": "Políticas de SLA configurables con umbrales de primera respuesta, siguiente respuesta y resolución — con seguimiento automático y alertas antes de incumplir.",
+      "cta": "Garantiza tu nivel de servicio",
+      "features": [
+        "Umbrales configurables: primera respuesta (FRT), siguiente respuesta (NRT) y resolución (RT)",
+        "Medición solo en horario laboral, opcional",
+        "Seguimiento automático de SLA por conversación",
+        "Alertas cuando un compromiso está por incumplirse",
+        "Reportes de cumplimiento con métricas agregadas",
+        "Evaluación continua y automática de los SLA aplicados"
+      ],
+      "benefits": [
+        { "t": "Leads que no se enfrían", "d": "Tiempos de respuesta consistentes, críticos para no perder prospectos." },
+        { "t": "Intervención a tiempo", "d": "Alertas para que supervisores actúen antes de perder un lead por demora." },
+        { "t": "Medición justa", "d": "El horario laboral configurable evita penalizaciones fuera de turno." },
+        { "t": "Compromisos medibles", "d": "Datos de cumplimiento para acuerdos con propietarios y corporativos." }
+      ],
+      "versus": [
+        "SLA nativos en el motor de comunicaciones, sin herramientas adicionales",
+        "Medición en horario laboral para los horarios reales del sector: fines de semana y jornadas extendidas",
+        "Políticas diferenciadas por equipo e inbox: urgencia alta para ventas, normal para administración",
+        "Reportes que alimentan decisiones de staffing: si los sábados se incumple, necesitas más agentes ese día"
+      ]
+    },
+    {
+      "slug": "perfil-publico", "icon": "badge", "cat": "vende",
+      "name": "Perfil Público del Agente",
+      "short": "Landing personal por asesor con portafolio y agendamiento integrado.",
+      "h1": "Convierte a cada asesor en una landing page.",
+      "sub": "Página pública personalizada por asesor: biografía, canales de contacto, portafolio de propiedades, propiedad destacada y agendamiento integrado para captar leads directamente.",
+      "cta": "Crea tu perfil de asesor",
+      "features": [
+        "URL personalizada con slug único por agente",
+        "Biografía y descripción profesional editable",
+        "Canales de contacto visibles: WhatsApp, email y chat web",
+        "Portafolio: propiedades propias o de toda la empresa",
+        "Propiedad destacada configurable",
+        "Links de reserva de calendario integrados",
+        "Personalización visual del diseño",
+        "Pixel de seguimiento para medir visitas"
+      ],
+      "benefits": [
+        { "t": "Capta leads directo", "d": "Comparte el perfil en redes, tarjetas y portales para atraer prospectos." },
+        { "t": "Confianza inmediata", "d": "El prospecto navega tu portafolio antes de contactarte." },
+        { "t": "Del interés a la visita", "d": "Ve la propiedad, le interesa y agenda — en un solo flujo sin fricción." },
+        { "t": "Mide lo que funciona", "d": "El pixel revela qué campañas generan más visitas a tu perfil." }
+      ],
+      "versus": [
+        "Perfil público con portafolio inmobiliario que no existe en ningún otro CRM",
+        "Calendario y canales integrados: el perfil es una landing de captación, no una tarjeta digital",
+        "Propiedades siempre actualizadas: el inventario cambia y el perfil se refleja solo",
+        "URL personalizada que refuerza la marca personal del asesor"
+      ]
+    },
+    {
+      "slug": "configuracion", "icon": "settings", "cat": "automatiza",
+      "name": "Configuración y Administración",
+      "short": "Roles granulares, auditoría, SSO e integraciones para operar con control.",
+      "h1": "Gobierna tu operación con permisos a la medida.",
+      "sub": "Panel de administración completo: agentes, equipos, roles personalizados, atributos a medida, integraciones, logs de auditoría, SAML SSO, horarios laborales y marca propia.",
+      "cta": "Configura tu cuenta a tu medida",
+      "features": [
+        "Gestión de agentes: invitación, roles, permisos y activación",
+        "Equipos con agentes asignados",
+        "Roles personalizados con permisos granulares: conversaciones, contactos, reportes, contratos, tesorería, inboxes y más",
+        "Atributos personalizados para conversaciones y contactos",
+        "Respuestas predefinidas compartidas por el equipo",
+        "Etiquetas con colores para clasificación visual",
+        "Horarios laborales por canal",
+        "Bots o agentes IA asignados por inbox",
+        "Integraciones: Dialogflow, Slack, Google Translate, Linear, Motion, Cal.com y webhooks",
+        "Logs de auditoría: quién hizo qué y cuándo",
+        "SAML SSO para autenticación empresarial",
+        "Auto-resolución de conversaciones por inactividad",
+        "Atributos requeridos antes de resolver una conversación",
+        "Tema personalizado por cuenta con tus colores de marca",
+        "API con credenciales para integraciones a medida",
+        "Gestión de facturación y planes"
+      ],
+      "benefits": [
+        { "t": "Cada perfil ve lo suyo", "d": "Asesor, admin, gerente y cobranza: permisos exactos para cada rol." },
+        { "t": "Trazabilidad para compliance", "d": "Logs de auditoría completos para resolver disputas internas." },
+        { "t": "IA de noche, agentes de día", "d": "Horarios por canal: la IA cubre fuera de horario automáticamente." },
+        { "t": "Tu terminología", "d": "Atributos personalizados que adaptan la plataforma a tu inmobiliaria." },
+        { "t": "Acceso simple y seguro", "d": "SSO para equipos grandes sin gestionar contraseñas." }
+      ],
+      "versus": [
+        "Permisos específicos de contratos y tesorería que no existen en CRMs genéricos",
+        "Aprobación de asignación de contactos como permiso dedicado, fiel a la dinámica de leads inmobiliarios",
+        "Marca propia por cuenta sin desarrollo adicional",
+        "API abierta para integrar ERPs, portales y sistemas contables",
+        "Atributos requeridos al resolver: captura siempre tipo de inmueble, zona y presupuesto"
+      ]
+    },
+    {
+      "slug": "busqueda", "icon": "search", "cat": "automatiza",
+      "name": "Búsqueda Global Inteligente",
+      "short": "Encuentra contactos, propiedades, contratos y pagos en un solo buscador.",
+      "h1": "Encuentra todo. En segundos. En un solo lugar.",
+      "sub": "Motor de búsqueda unificado que encuentra contactos, conversaciones, propiedades, oportunidades, contratos y suscripciones en toda la plataforma — potenciado por IA.",
+      "cta": "Busca como piensas",
+      "features": [
+        "Búsqueda global en 10 tipos de entidad: contactos, conversaciones, mensajes, artículos, empresas, oportunidades, propiedades, contratos, firmas y suscripciones",
+        "Búsqueda potenciada por IA para resultados más relevantes",
+        "Filtros por rango de fecha y ordenamiento",
+        "Historial de búsquedas recientes",
+        "Resultados categorizados por tipo de entidad"
+      ],
+      "benefits": [
+        { "t": "Respuesta inmediata al teléfono", "d": "Encuentra cualquier dato en segundos mientras el cliente espera en línea." },
+        { "t": "Busca en lenguaje natural", "d": "La IA entiende consultas como las dirías, no solo coincidencias exactas." },
+        { "t": "Consultas del día a día", "d": "El historial de búsquedas agiliza lo que consultas todos los días." }
+      ],
+      "versus": [
+        "10 tipos de entidad en un solo campo — propiedades, contratos y suscripciones incluidos",
+        "Consultas en lenguaje natural: 'apartamentos disponibles en Chapinero con 3 habitaciones'",
+        "Resultados categorizados: distingue al instante entre propiedad, contacto y contrato con el mismo nombre"
+      ]
+    }
+  ]
+}
