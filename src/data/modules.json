@@ -38,7 +38,7 @@
         { "t": "Trazabilidad completa", "d": "Cada interacción con propietarios, arrendatarios y prospectos queda registrada." }
       ],
       "versus": [
-        "Único CRM inmobiliario con 8 canales nativos, incluyendo TikTok e Instagram DM — donde el comprador joven busca propiedades",
+        "La única plataforma inmobiliaria con 8 canales nativos, incluyendo TikTok e Instagram DM — donde el comprador joven busca propiedades",
         "Asignación inteligente por carga de trabajo: ningún lead de alto valor queda sin atender",
         "Traducción en tiempo real para atender inversionistas extranjeros sin barreras de idioma",
         "Transferencia bot-a-humano sin fricción: el prospecto nunca siente la transición",
@@ -47,7 +47,7 @@
     },
     {
       "slug": "contactos", "icon": "users", "cat": "vende",
-      "name": "CRM de Contactos y Empresas",
+      "name": "Contactos y Empresas",
       "short": "Prospectos, propietarios y arrendatarios con perfiles enriquecidos y control de acceso.",
       "h1": "Conoce a cada cliente antes de saludarlo.",
       "sub": "Base de datos inteligente de prospectos, propietarios, arrendatarios y empresas: perfiles enriquecidos, segmentación avanzada, control de acceso a leads y vinculación directa con propiedades, contratos y oportunidades.",
@@ -109,7 +109,7 @@
         { "t": "Sin doble digitación", "d": "La integración con Wasi sincroniza tu inventario con los portales automáticamente." }
       ],
       "versus": [
-        "Único CRM con gestión de propiedades nativa conectada a comunicaciones y cobros — sin integraciones externas",
+        "Gestión de propiedades nativa, conectada a comunicaciones, contratos y cobros — no un CRM por un lado y un inventario por otro",
         "8 roles por propiedad que reflejan el negocio real colombiano: codeudor y administrador PH incluidos",
         "Sincronización con Wasi para publicar y actualizar inventario en portales automáticamente",
         "Galería + compartir por WhatsApp convierten la ficha en herramienta de venta activa",
@@ -256,7 +256,7 @@
         { "t": "Desembolsos sin conciliación", "d": "Pagos a propietarios automáticos, sin cruces manuales." }
       ],
       "versus": [
-        "Único CRM inmobiliario con tesorería nativa: cobro, seguimiento y desembolso en un solo lugar",
+        "La única plataforma inmobiliaria con tesorería nativa: cobro, seguimiento y desembolso en el mismo lugar donde vendes y firmas",
         "Pasarelas colombianas nativas con PSE — lo que las soluciones internacionales no soportan",
         "Clasificación de mora hasta siniestro, fiel a la realidad de la cartera colombiana",
         "Cadena de trazabilidad financiera: suscripción-contrato-propiedad-arrendatario",
@@ -295,7 +295,7 @@
         { "t": "Respuestas siempre consistentes", "d": "Base de conocimiento actualizada sobre proyectos, precios y disponibilidad." }
       ],
       "versus": [
-        "10 escenarios inmobiliarios predefinidos: ningún otro CRM incluye workflows de IA para el sector",
+        "10 escenarios inmobiliarios predefinidos: ninguna otra plataforma inmobiliaria incluye workflows de IA para el sector",
         "La IA busca propiedades, muestra fotos, agenda visitas y crea oportunidades — no solo responde preguntas",
         "Herramientas personalizadas para conectar la IA con tu ERP, portal o inventario",
         "Handoff bot-a-humano con resumen de la conversación y acciones realizadas",
@@ -433,7 +433,7 @@
         { "t": "Vista ejecutiva del negocio", "d": "Tasa de ocupación y resumen financiero en un solo dashboard." }
       ],
       "versus": [
-        "Métricas inmobiliarias nativas — ocupación, cartera, pipeline — que no existen en CRMs genéricos",
+        "Métricas inmobiliarias nativas — ocupación, cartera, pipeline — que no obtienes cuando tu CRM, tu cobro y tu inventario viven separados",
         "Métricas de handoff de IA para optimizar escenarios y reducir dependencia de agentes",
         "Funnel completo medible: de lead a cierre, conversaciones y oportunidades juntas",
         "CSV descargable: reportes personalizados sin equipo de BI",
@@ -492,7 +492,7 @@
         { "t": "Mide lo que funciona", "d": "El pixel revela qué campañas generan más visitas a tu perfil." }
       ],
       "versus": [
-        "Perfil público con portafolio inmobiliario que no existe en ningún otro CRM",
+        "Perfil público con portafolio inmobiliario que no existe en ningún CRM ni portal del sector",
         "Calendario y canales integrados: el perfil es una landing de captación, no una tarjeta digital",
         "Propiedades siempre actualizadas: el inventario cambia y el perfil se refleja solo",
         "URL personalizada que refuerza la marca personal del asesor"
@@ -531,7 +531,7 @@
         { "t": "Acceso simple y seguro", "d": "SSO para equipos grandes sin gestionar contraseñas." }
       ],
       "versus": [
-        "Permisos específicos de contratos y tesorería que no existen en CRMs genéricos",
+        "Permisos específicos de contratos y tesorería que no existen cuando operas con un CRM y un sistema de cobros por separado",
         "Aprobación de asignación de contactos como permiso dedicado, fiel a la dinámica de leads inmobiliarios",
         "Marca propia por cuenta sin desarrollo adicional",
         "API abierta para integrar ERPs, portales y sistemas contables",

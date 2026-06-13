@@ -1,6 +1,6 @@
 # Yampi — Sitio Comercial (Astro 6)
 
-Sitio comercial de **Yampi**, el CRM inteligente para operaciones inmobiliarias en Latinoamérica. Home + 16 páginas de módulo generadas estáticamente desde un solo archivo de datos, con la identidad del Yampi Design System.
+Sitio comercial de **Yampi**, la plataforma todo-en-uno para operar inmobiliarias en Latinoamérica (comunicaciones, propiedades, contratos, cobros e IA). Home + 16 páginas de módulo generadas estáticamente desde un solo archivo de datos, con la identidad del Yampi Design System.
 
 ## Requisitos
 
