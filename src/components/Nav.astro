@@ -5,7 +5,7 @@ import { CAT_ORDER, CAT_COLOR, groupByCat } from '../lib/categories.js';
 
 const byCat = groupByCat(data);
 ---
-<header class="nav-shell">
+<header class="nav-shell" data-nav-shell>
   <nav class="nav-pill">
     <a class="nav-logo" href="/" aria-label="Yampi"><span class="wordmark">yampi</span></a>
     <div class="nav-links">
@@ -28,7 +28,19 @@ const byCat = groupByCat(data);
     </div>
     <div class="nav-right">
       <a class="nav-login" href="https://app.yampi.ai" target="_blank" rel="noopener">Iniciar sesión</a>
-      <a class="btn btn-primary" href="#demo">Agenda una demo</a>
+      <a class="btn btn-primary btn-sm" href="#demo">Agenda una demo</a>
     </div>
   </nav>
 </header>
+
+<script>
+  const shell = document.querySelector('[data-nav-shell]');
+  if (shell) {
+    const SCROLL_THRESHOLD = 24;
+    const syncNav = () => {
+      shell.classList.toggle('is-scrolled', window.scrollY > SCROLL_THRESHOLD);
+    };
+    syncNav();
+    window.addEventListener('scroll', syncNav, { passive: true });
+  }
+</script>
