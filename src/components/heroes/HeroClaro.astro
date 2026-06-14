@@ -1,13 +1,15 @@
 ---
 // Hero A — claro, centrado, con mockup grande debajo (variante elegida).
 import ShotPlaceholder from '../ShotPlaceholder.astro';
-const { src } = Astro.props;
+import { HOME_HERO_TITLE, HOME_HERO_DESCRIPTION } from '../../lib/site-copy.js';
+
+const { src, title = HOME_HERO_TITLE, description = HOME_HERO_DESCRIPTION } = Astro.props;
 ---
 <section class="hero-claro" data-screen-label="Hero claro">
   <div class="hero-claro-inner">
     <div class="hero-claro-copy">
-      <h1 class="display-xl">Ecosistema IA para operar inmobiliarias</h1>
-      <p class="lede">Yampi es una plataforma que conecta atención, arriendos, ventas, contratos y cobros en un solo sistema: IA en tu WhatsApp que califica leads, propiedades enlazadas al embudo, firma electrónica que activa el cobro y tesorería que trabaja sola.</p>
+      <h1 class="display-xl">{title}</h1>
+      <p class="lede">{description}</p>
     </div>
     <div class="hero-actions">
       <a class="btn btn-primary" href="#demo">Agenda una demo</a>

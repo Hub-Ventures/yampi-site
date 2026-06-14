@@ -14,6 +14,12 @@ const { title, description } = Astro.props;
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{title}</title>
 {description && <meta name="description" content={description} />}
+{description && <meta property="og:title" content={title} />}
+{description && <meta property="og:description" content={description} />}
+{description && <meta property="og:type" content="website" />}
+{description && <meta name="twitter:card" content="summary_large_image" />}
+{description && <meta name="twitter:title" content={title} />}
+{description && <meta name="twitter:description" content={description} />}
 <link rel="icon" href="/favicon.svg" />
 </head>
 <body>

@@ -10,6 +10,7 @@ import ShotPlaceholder from '../components/ShotPlaceholder.astro';
 import Icon from '../components/Icon.astro';
 import data from '../data/modules.json';
 import { CAT_ORDER, CAT_COLOR, groupByCat } from '../lib/categories.js';
+import { HOME_PAGE_TITLE, HOME_HERO_DESCRIPTION } from '../lib/site-copy.js';
 
 const HERO_VARIANT = 'claro';
 const MOSTRAR_LOGOS = true;
@@ -51,10 +52,7 @@ const capacidades = [
   },
 ];
 ---
-<BaseLayout
-  title="Yampi — La plataforma para operar toda tu inmobiliaria"
-  description="Comunicaciones omnicanal, propiedades, contratos con firma electrónica, cobro de arriendos e IA inmobiliaria en una sola plataforma. La alternativa todo-en-uno a tu CRM, tu firma y tu pasarela de cobros, hecha para Latinoamérica."
->
+<BaseLayout title={HOME_PAGE_TITLE} description={HOME_HERO_DESCRIPTION}>
   {HERO_VARIANT === 'claro' && <HeroClaro />}
   {HERO_VARIANT === 'oscuro' && <HeroOscuro />}
   {HERO_VARIANT === 'split' && <HeroSplit />}
