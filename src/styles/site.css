@@ -93,6 +93,12 @@ img, svg { display: block; }
   border: 1px solid var(--border-strong);
 }
 .btn-outline:hover { background: var(--slate-3); border-color: var(--slate-7); }
+.btn-google {
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+}
+.btn-google:hover { background: #1a1a1a; border-color: #1a1a1a; }
 .btn-on-dark { background: var(--fg-on-dark); color: var(--slate-12); }
 .btn-on-dark:hover { background: var(--slate-4); }
 .btn-ghost-dark {
@@ -107,6 +113,13 @@ img, svg { display: block; }
   font-size: var(--fs-sm);
   font-weight: var(--fw-medium);
   border-radius: var(--radius-md);
+}
+.btn-icon {
+  flex-shrink: 0;
+}
+.btn-sm .btn-icon {
+  width: 16px;
+  height: 16px;
 }
 
 .text-link {
@@ -429,15 +442,6 @@ img, svg { display: block; }
   gap: 16px;
   justify-content: center;
   margin-top: 0;
-}
-.hero-claro .hero-actions .btn {
-  padding: 12px 32px;
-  font-size: 15px;
-  font-weight: 400;
-  border-radius: 9999px;
-}
-.hero-claro .hero-actions .btn-outline {
-  background: rgba(255, 255, 255, 0.9);
 }
 .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 .hero-shot { max-width: 1152px; margin: 64px auto 0; padding: 0 24px; }
