@@ -2,6 +2,7 @@
 // Hero A — claro, centrado, con mockup grande debajo (variante elegida).
 import ShotPlaceholder from '../ShotPlaceholder.astro';
 import { HOME_HERO_TITLE, HOME_HERO_DESCRIPTION, getGoogleSignupUrl } from '../../lib/site-copy.js';
+import DemoButton from '../DemoButton.astro';
 
 const { src, title = HOME_HERO_TITLE, description = HOME_HERO_DESCRIPTION } = Astro.props;
 const googleSignupUrl = getGoogleSignupUrl();
@@ -22,7 +23,7 @@ const googleSignupUrl = getGoogleSignupUrl();
         </svg>
         Comenzar con Google
       </a>
-      <a class="btn btn-primary btn-sm" href="#demo">Agenda una demo</a>
+      <DemoButton />
     </div>
   </div>
   <div class="hero-shot">

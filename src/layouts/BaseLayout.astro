@@ -2,6 +2,7 @@
 // Layout base: head + nav + footer + animación reveal.
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import { YAMPI_CALENDAR, YAMPI_WHATSAPP } from '../lib/site-copy.js';
 import '../styles/tokens.css';
 import '../styles/site.css';
 
@@ -21,11 +22,33 @@ const { title, description } = Astro.props;
 {description && <meta name="twitter:title" content={title} />}
 {description && <meta name="twitter:description" content={description} />}
 <link rel="icon" href="/favicon.svg" />
+<script src="https://app.yampi.ai/packs/js/calendar_sdk.js"></script>
 </head>
 <body>
 <Nav />
 <slot />
 <Footer />
+<script is:inline define:vars={{ calendarBaseUrl: YAMPI_CALENDAR.baseUrl, calendarSlug: YAMPI_CALENDAR.slug }}>
+  document.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-yampi-demo]');
+    if (!button || !window.YampiCalendar?.popup) return;
+    event.preventDefault();
+    window.YampiCalendar.popup({ baseUrl: calendarBaseUrl, slug: calendarSlug });
+  });
+</script>
+<script is:inline define:vars={{ whatsappBaseUrl: YAMPI_WHATSAPP.baseUrl, whatsappToken: YAMPI_WHATSAPP.websiteToken }}>
+  (function () {
+    var g = document.createElement('script');
+    g.src = whatsappBaseUrl + '/packs/js/whatsapp_sdk.js';
+    g.async = true;
+    g.onload = function () {
+      if (window.yampiWhatsApp) {
+        window.yampiWhatsApp.run({ websiteToken: whatsappToken, baseUrl: whatsappBaseUrl });
+      }
+    };
+    document.body.appendChild(g);
+  })();
+</script>
 <script>
   const io = new IntersectionObserver(
     (entries) => {

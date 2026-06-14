@@ -3,6 +3,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ShotPlaceholder from '../../components/ShotPlaceholder.astro';
 import CtaFinal from '../../components/CtaFinal.astro';
+import DemoButton from '../../components/DemoButton.astro';
 import Icon from '../../components/Icon.astro';
 import data from '../../data/modules.json';
 import { CAT_COLOR, CAT_BG, CAT_TEXT } from '../../lib/categories.js';
@@ -38,7 +39,7 @@ const colB = mod.features.filter((_, j) => j % 2 === 1);
           <h1 class="display-lg" style="margin-top: 20px;">{mod.h1}</h1>
           <p class="lede" style="margin-top: 22px;">{mod.sub}</p>
           <div style="display: flex; gap: 12px; margin-top: 34px;">
-            <a class="btn btn-primary btn-lg" href="#demo">Agenda una demo</a>
+            <DemoButton class="btn btn-primary btn-lg" />
             <a class="btn btn-outline btn-lg" href="#funcionalidades">Ver funcionalidades</a>
           </div>
         </div>
@@ -97,7 +98,6 @@ const colB = mod.features.filter((_, j) => j % 2 === 1);
     <CtaFinal
       title={`${mod.cta}.`}
       text={`Agenda 30 minutos y mira ${mod.name} funcionando con casos reales de inmobiliarias como la tuya.`}
-      subject={`Demo de ${mod.name}`}
       bordered
     />
 

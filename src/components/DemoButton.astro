@@ -1,0 +1,6 @@
+---
+import { DEMO_BUTTON_LABEL } from '../lib/site-copy.js';
+
+const { class: className = 'btn btn-primary btn-sm', label = DEMO_BUTTON_LABEL } = Astro.props;
+---
+<button type="button" class={className} data-yampi-demo>{label}</button>

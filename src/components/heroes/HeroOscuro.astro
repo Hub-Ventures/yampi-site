@@ -1,6 +1,7 @@
 ---
 // Hero B — fondo oscuro (charcoal del design system) con mockup que se asoma.
 import ShotPlaceholder from '../ShotPlaceholder.astro';
+import DemoButton from '../DemoButton.astro';
 const { src } = Astro.props;
 ---
 <section data-screen-label="Hero oscuro">
@@ -10,7 +11,7 @@ const { src } = Astro.props;
       <h1 class="display-xl" style="margin-top: 22px;">Tu inmobiliaria completa,<br />en una sola plataforma.</h1>
       <p class="lede">Comunicaciones, propiedades, contratos, cobros e inteligencia artificial en una sola plataforma — no un CRM más, ni integraciones frágiles, ni hojas de cálculo. Construido para Latinoamérica.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary btn-lg" href="#demo">Agenda una demo</a>
+        <DemoButton class="btn btn-primary btn-lg" />
         <a class="btn btn-ghost-dark btn-lg" href="#modulos">Conoce los módulos</a>
       </div>
       <div class="hero-shot">

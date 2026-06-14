@@ -9,6 +9,19 @@ export const HOME_HERO_DESCRIPTION =
 
 export const HOME_PAGE_TITLE = `${SITE_NAME} — ${HOME_HERO_TITLE}`;
 
+export const YAMPI_CALENDAR = {
+  baseUrl: YAMPI_APP_URL,
+  slug: 'demos',
+};
+
+export const YAMPI_WHATSAPP = {
+  baseUrl: YAMPI_APP_URL,
+  websiteToken:
+    import.meta.env.PUBLIC_YAMPI_WHATSAPP_WEBSITE_TOKEN || 'xgwRtmame9kBeLtASh5LPAeE',
+};
+
+export const DEMO_BUTTON_LABEL = 'Agenda una demo';
+
 /** Misma URL que v3/components/GoogleOauth/Button.vue → Google OAuth → registro o login SSO. */
 export function getGoogleSignupUrl() {
   const clientId = import.meta.env.PUBLIC_GOOGLE_OAUTH_CLIENT_ID;
