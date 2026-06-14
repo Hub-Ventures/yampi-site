@@ -3,14 +3,15 @@
 import ShotPlaceholder from '../ShotPlaceholder.astro';
 const { src } = Astro.props;
 ---
-<section data-screen-label="Hero claro">
-  <div class="hero-claro wrap">
-    <span class="chip">Plataforma de operaciones inmobiliarias</span>
-    <h1 class="display-xl" style="margin-top: 22px;">Del primer mensaje<br />al arriendo cobrado.</h1>
-    <p class="lede">Yampi conecta atención, ventas, contratos y cobros en una sola plataforma: WhatsApp e IA que califican leads, propiedades enlazadas al pipeline, firma electrónica que activa el cobro y tesorería que recauda y desembolsa sola. Una operación completa en vez de seis herramientas sueltas.</p>
+<section class="hero-claro" data-screen-label="Hero claro">
+  <div class="hero-claro-inner">
+    <div class="hero-claro-copy">
+      <h1 class="display-xl">Ecosistema IA para operar inmobiliarias</h1>
+      <p class="lede">Yampi es una plataforma que conecta atención, arriendos, ventas, contratos y cobros en un solo sistema: IA en tu WhatsApp que califica leads, propiedades enlazadas al embudo, firma electrónica que activa el cobro y tesorería que trabaja sola.</p>
+    </div>
     <div class="hero-actions">
-      <a class="btn btn-primary btn-lg" href="#demo">Agenda una demo</a>
-      <a class="btn btn-outline btn-lg" href="#modulos">Conoce los módulos</a>
+      <a class="btn btn-primary" href="#demo">Agenda una demo</a>
+      <a class="btn btn-outline" href="#modulos">Conoce los módulos</a>
     </div>
   </div>
   <div class="hero-shot">

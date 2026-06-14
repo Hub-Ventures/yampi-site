@@ -374,11 +374,76 @@ img, svg { display: block; }
   .section { padding: 64px 0; }
 }
 
-  /* ——— Hero ——— */
-  .hero-claro { padding: 88px 0 0; text-align: center; }
-  .hero-claro .lede { max-width: 720px; margin: 24px auto 0; }
-  .hero-actions { display: flex; gap: 12px; justify-content: center; margin-top: 36px; }
-  .hero-shot { max-width: 1040px; margin: 64px auto 0; padding: 0 32px; }
+/* ——— Hero (paridad Frontline: pt-52, max-w-6xl, tipografía y CTAs pill) ——— */
+.hero-claro {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 80% 60% at 12% 0%, rgba(196, 181, 253, 0.5) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 55% at 88% 8%, rgba(254, 205, 211, 0.4) 0%, transparent 50%),
+    linear-gradient(180deg, rgb(250, 245, 255) 0%, rgb(255, 255, 255) 42%, rgb(255, 255, 255) 100%);
+}
+.hero-claro-inner {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 208px 24px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-claro-copy {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-width: min(1152px, 100%);
+  margin-inline: auto;
+  text-align: center;
+}
+.hero-claro .display-xl {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(36px, 5vw, 60px);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: #000;
+  font-variation-settings: normal;
+  text-wrap: balance;
+  width: max-content;
+  max-width: 100%;
+  align-self: center;
+}
+.hero-claro .lede {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  color: rgb(51, 65, 85);
+  width: 0;
+  min-width: 100%;
+  margin: 24px 0 40px;
+  text-wrap: pretty;
+}
+.hero-claro .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 0;
+}
+.hero-claro .hero-actions .btn {
+  padding: 12px 32px;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 9999px;
+}
+.hero-claro .hero-actions .btn-outline {
+  background: rgba(255, 255, 255, 0.9);
+}
+.hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.hero-shot { max-width: 1152px; margin: 64px auto 0; padding: 0 24px; }
+@media (max-width: 768px) {
+  .hero-claro-inner { padding-top: 128px; }
+}
 
   .hero-oscuro { background: var(--bg-sidebar); color: rgba(255,255,255,0.75); padding: 96px 0 0; text-align: center; }
   .hero-oscuro .display-xl { color: var(--fg-on-dark); }
