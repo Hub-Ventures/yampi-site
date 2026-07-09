@@ -84,10 +84,10 @@ img, svg { display: block; }
   border: none;
   transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   white-space: nowrap;
+  text-decoration: none;
 }
 button.btn {
   appearance: none;
-  text-decoration: none;
 }
 .btn-primary { background: var(--primary); color: var(--fg-on-primary); }
 .btn-primary:hover { background: var(--primary-hover); }
@@ -97,6 +97,7 @@ button.btn {
   border: 1px solid var(--border-strong);
 }
 .btn-outline:hover { background: var(--slate-3); border-color: var(--slate-7); }
+.btn-outline.btn-on-card { background: var(--bg-card); }
 .btn-google {
   background: #000;
   color: #fff;
@@ -534,6 +535,7 @@ button.btn {
 
 /* ——— Páginas de módulo (acento por categoría vía --accent) ——— */
 .mod-hero { padding: 80px 0 64px; }
+.mod-hero .hero-actions { justify-content: flex-start; }
 .mod-hero .grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; }
 @media (max-width: 900px) { .mod-hero .grid { grid-template-columns: 1fr; } }
 .mod-breadcrumb { display: inline-flex; align-items: center; gap: 8px; font-size: var(--fs-sm); font-weight: var(--fw-medium); color: var(--fg-secondary); margin-bottom: 20px; }

@@ -1,6 +1,6 @@
 ---
 // Sección CTA final oscura, reutilizada en home y páginas de módulo.
-import DemoButton from './DemoButton.astro';
+import Button from './Button.astro';
 
 const {
   title = 'Mira Yampi funcionando con tus propias propiedades.',
@@ -17,8 +17,7 @@ const {
     <h2 class="display-lg reveal" style="color: var(--fg-on-dark);">{title}</h2>
     <p class="lede reveal">{text}</p>
     <div class="hero-actions reveal">
-      <DemoButton class="btn btn-on-dark btn-lg" />
-      <a class="btn btn-ghost-dark btn-lg" href="https://wa.me/573112345678" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+      <Button action="demo" variant="on-dark" />
     </div>
   </div>
 </section>

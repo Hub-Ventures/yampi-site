@@ -2,7 +2,7 @@
 // Nav píldora con mega-menú "Plataforma" construido desde modules.json.
 import data from '../data/modules.json';
 import { CAT_ORDER, CAT_COLOR, groupByCat } from '../lib/categories.js';
-import DemoButton from './DemoButton.astro';
+import Button from './Button.astro';
 
 const byCat = groupByCat(data);
 ---
@@ -29,7 +29,7 @@ const byCat = groupByCat(data);
     </div>
     <div class="nav-right">
       <a class="nav-login" href="https://app.yampi.ai" target="_blank" rel="noopener">Iniciar sesión</a>
-      <DemoButton />
+      <Button action="demo" />
     </div>
   </nav>
 </header>

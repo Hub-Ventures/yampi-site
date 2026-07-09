@@ -3,7 +3,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ShotPlaceholder from '../../components/ShotPlaceholder.astro';
 import CtaFinal from '../../components/CtaFinal.astro';
-import DemoButton from '../../components/DemoButton.astro';
+import Button from '../../components/Button.astro';
 import Icon from '../../components/Icon.astro';
 import data from '../../data/modules.json';
 import { CAT_COLOR, CAT_BG, CAT_TEXT } from '../../lib/categories.js';
@@ -38,9 +38,9 @@ const colB = mod.features.filter((_, j) => j % 2 === 1);
           </span>
           <h1 class="display-lg" style="margin-top: 20px;">{mod.h1}</h1>
           <p class="lede" style="margin-top: 22px;">{mod.sub}</p>
-          <div style="display: flex; gap: 12px; margin-top: 34px;">
-            <DemoButton class="btn btn-primary btn-lg" />
-            <a class="btn btn-outline btn-lg" href="#funcionalidades">Ver funcionalidades</a>
+          <div class="hero-actions" style="margin-top: 34px;">
+            <Button action="demo" />
+            <Button variant="outline" href="#funcionalidades">Ver funcionalidades</Button>
           </div>
         </div>
         <ShotPlaceholder src={mod.shot} height={440} label={`Screenshot del módulo ${mod.name}`} alt={mod.name} />

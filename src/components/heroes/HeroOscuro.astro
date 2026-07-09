@@ -1,7 +1,8 @@
 ---
 // Hero B — fondo oscuro (charcoal del design system) con mockup que se asoma.
 import ShotPlaceholder from '../ShotPlaceholder.astro';
-import DemoButton from '../DemoButton.astro';
+import Button from '../Button.astro';
+
 const { src } = Astro.props;
 ---
 <section data-screen-label="Hero oscuro">
@@ -11,8 +12,8 @@ const { src } = Astro.props;
       <h1 class="display-xl" style="margin-top: 22px;">Tu inmobiliaria completa,<br />en una sola plataforma.</h1>
       <p class="lede">Comunicaciones, propiedades, contratos, cobros e inteligencia artificial en una sola plataforma — no un CRM más, ni integraciones frágiles, ni hojas de cálculo. Construido para Latinoamérica.</p>
       <div class="hero-actions">
-        <DemoButton class="btn btn-primary btn-lg" />
-        <a class="btn btn-ghost-dark btn-lg" href="#modulos">Conoce los módulos</a>
+        <Button action="demo" />
+        <Button variant="ghost-dark" href="#modulos">Conoce los módulos</Button>
       </div>
       <div class="hero-shot">
         <ShotPlaceholder src={src} height={540} label="Screenshot: panel de control de Yampi" alt="Panel de control de Yampi" />
