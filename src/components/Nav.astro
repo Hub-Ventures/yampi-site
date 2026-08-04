@@ -1,18 +1,23 @@
 ---
-// Nav píldora con mega-menú "Plataforma" construido desde modules.json.
+// Nav píldora: mega-menú "Plataforma" (desktop) + panel desplegable (móvil).
+// Los dos se construyen desde modules.json, así que la migración a Suites
+// (ADR-001 §3.1) no obliga a tocar este componente.
 import data from '../data/modules.json';
 import { CAT_ORDER, CAT_COLOR, groupByCat } from '../lib/categories.js';
 import Button from './Button.astro';
+import Logo from './Logo.astro';
 
 const byCat = groupByCat(data);
 ---
 <header class="nav-shell" data-nav-shell>
   <nav class="nav-pill">
-    <a class="nav-logo" href="/" aria-label="Yampi"><span class="wordmark">yampi</span></a>
+    <a class="nav-logo" href="/" aria-label="Yampi"><Logo height={26} /></a>
     <div class="nav-links">
-      <button class="nav-item" type="button">
-        Plataforma
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+      <div class="nav-item-wrap">
+        <button class="nav-item" type="button" aria-expanded="false">
+          Plataforma
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+        </button>
         <div class="mega">
           {CAT_ORDER.map((c) => (
             <div class="mega-col">
@@ -23,7 +28,7 @@ const byCat = groupByCat(data);
             </div>
           ))}
         </div>
-      </button>
+      </div>
       <a class="nav-item" href="/#capacidades">Por qué Yampi</a>
       <a class="nav-item" href="/#modulos">Módulos</a>
     </div>
@@ -31,7 +36,43 @@ const byCat = groupByCat(data);
       <a class="nav-login" href="https://app.yampi.ai" target="_blank" rel="noopener">Iniciar sesión</a>
       <Button action="demo" />
     </div>
+    <button
+      class="nav-burger"
+      type="button"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="nav-mobile"
+      data-nav-burger
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="3" y1="7" x2="21" y2="7" />
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="17" x2="21" y2="17" />
+      </svg>
+    </button>
   </nav>
+
+  <div class="nav-mobile" id="nav-mobile" hidden>
+    <div class="nav-mobile-inner">
+      {CAT_ORDER.map((c) => (
+        <div class="nav-mobile-group">
+          <h5 style={`color: ${CAT_COLOR[c]}`}>{data.categories[c].label}</h5>
+          {byCat[c].map((m) => (
+            <a href={`/modulos/${m.slug}/`}>{m.name}</a>
+          ))}
+        </div>
+      ))}
+      <div class="nav-mobile-group">
+        <h5>Explora</h5>
+        <a href="/#capacidades">Por qué Yampi</a>
+        <a href="/#modulos">Módulos</a>
+      </div>
+      <div class="nav-mobile-actions">
+        <Button action="demo" size="lg" />
+        <a class="btn btn-outline btn-lg" href="https://app.yampi.ai" target="_blank" rel="noopener">Iniciar sesión</a>
+      </div>
+    </div>
+  </div>
 </header>
 
 <script>
@@ -43,5 +84,44 @@ const byCat = groupByCat(data);
     };
     syncNav();
     window.addEventListener('scroll', syncNav, { passive: true });
+  }
+
+  const burger = document.querySelector('[data-nav-burger]');
+  const panel = document.getElementById('nav-mobile');
+
+  if (burger && panel) {
+    const setOpen = (open) => {
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      panel.hidden = !open;
+      document.body.classList.toggle('nav-locked', open);
+    };
+
+    burger.addEventListener('click', () =>
+      setOpen(burger.getAttribute('aria-expanded') !== 'true')
+    );
+
+    // Un enlace a un ancla de la misma página no recarga, así que hay que cerrar
+    // a mano. El botón de demo también: abre el popup del calendario y el panel
+    // se quedaría detrás del modal.
+    panel.addEventListener('click', (e) => {
+      if (e.target instanceof Element && e.target.closest('a, [data-yampi-demo]')) {
+        setOpen(false);
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        burger.focus();
+      }
+    });
+
+    // Al cruzar a desktop el panel deja de mostrarse por CSS: sincroniza el estado.
+    window
+      .matchMedia('(min-width: 901px)')
+      .addEventListener('change', (e) => {
+        if (e.matches) setOpen(false);
+      });
   }
 </script>

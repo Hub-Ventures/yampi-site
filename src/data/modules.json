@@ -15,7 +15,7 @@
       "cta": "Centraliza tus canales hoy",
       "features": [
         "Bandeja de entrada unificada: todas las conversaciones, menciones, participaciones y no atendidas en una sola vista",
-        "8 canales integrados: WhatsApp Cloud API, Facebook Messenger, Instagram DM, TikTok, Email, Web Widget, SMS y llamadas de voz",
+        "12 canales integrados: WhatsApp Cloud API, Facebook Messenger, Instagram DM, TikTok, Email, Web Widget, SMS, Telegram, Line, API y dos canales de voz — telefonía Twilio y WhatsApp Calling",
         "Asignación automática de conversaciones por round-robin, carga de trabajo o reglas personalizadas",
         "Notas privadas internas entre agentes dentro de cada conversación",
         "Respuestas predefinidas para reducir tiempos de respuesta",
@@ -38,7 +38,7 @@
         { "t": "Trazabilidad completa", "d": "Cada interacción con propietarios, arrendatarios y prospectos queda registrada." }
       ],
       "versus": [
-        "La única plataforma inmobiliaria con 8 canales nativos, incluyendo TikTok e Instagram DM — donde el comprador joven busca propiedades",
+        "12 canales nativos, incluyendo TikTok e Instagram DM — donde el comprador joven busca propiedades",
         "Asignación inteligente por carga de trabajo: ningún lead de alto valor queda sin atender",
         "Traducción en tiempo real para atender inversionistas extranjeros sin barreras de idioma",
         "Transferencia bot-a-humano sin fricción: el prospecto nunca siente la transición",
@@ -94,7 +94,7 @@
         "Estados de mercado en tiempo real: disponible, en reserva, arrendado, vendido",
         "Galería fotográfica con carga múltiple de imágenes",
         "Vista de galería y vista de lista para navegar el inventario",
-        "8 roles por propiedad: propietario, arrendatario, administrador PH, proveedor, comprador, vendedor, prospecto y codeudor",
+        "7 roles por propiedad: propietario, arrendatario, codeudor, administrador PH, proveedor, comprador y vendedor",
         "Compartir propiedad vía WhatsApp, email o enlace directo",
         "Filtros avanzados por etiqueta, estado, tipo de oferta, tipo de inmueble y responsable",
         "Amenidades y cuota de administración configurables",
@@ -110,7 +110,7 @@
       ],
       "versus": [
         "Gestión de propiedades nativa, conectada a comunicaciones, contratos y cobros — no un CRM por un lado y un inventario por otro",
-        "8 roles por propiedad que reflejan el negocio real colombiano: codeudor y administrador PH incluidos",
+        "7 roles por propiedad que reflejan el negocio real de la región: codeudor y administrador PH incluidos",
         "Sincronización con Wasi para publicar y actualizar inventario en portales automáticamente",
         "Galería + compartir por WhatsApp convierten la ficha en herramienta de venta activa",
         "Filtros multi-criterio: encuentra la propiedad ideal para cada prospecto en segundos"
@@ -230,7 +230,7 @@
       "name": "Tesorería y Cobros",
       "short": "Cobro recurrente de arriendos con pasarelas colombianas y desembolsos.",
       "h1": "Cobra cada arriendo sin perseguir a nadie.",
-      "sub": "Suscripciones recurrentes de arriendo con pasarelas de pago colombianas — Wampi, Payco, Bold — seguimiento de pagos, desembolsos a propietarios y billetera digital para arrendatarios.",
+      "sub": "Suscripciones recurrentes de arriendo con pasarelas de pago locales — Wompi, ePayco, Bold — seguimiento de pagos, desembolsos a propietarios y billetera digital para arrendatarios.",
       "cta": "Automatiza tu cartera",
       "features": [
         "Dashboard financiero: ingresos cobrados, pagos pendientes, fallidos y tasa de éxito",
@@ -243,10 +243,10 @@
         "Seguimiento de cada ciclo de cobro por suscripción",
         "Desembolsos: seguimiento de pagos a propietarios",
         "Reglas de tesorería para automatizar cobros y penalizaciones",
-        "Pasarelas integradas: Wampi, Payco y Bold con sandbox y producción",
+        "Pasarelas integradas: Wompi, ePayco y Bold con sandbox y producción",
         "Billetera digital con tokenización segura de tarjeta para arrendatarios",
         "Links de pago personalizados",
-        "Canales de desembolso: externo, interno, manual y payout Wampi"
+        "Canales de desembolso: externo, interno, manual y payout Wompi"
       ],
       "benefits": [
         { "t": "Cobro en piloto automático", "d": "Elimina el seguimiento manual mes a mes que consume horas administrativas." },
@@ -326,7 +326,7 @@
         "Clonar, activar/desactivar y buscar automatizaciones"
       ],
       "benefits": [
-        { "t": "Recupera el 40% del tiempo", "d": "Elimina las tareas repetitivas que consumen la jornada de un asesor." },
+        { "t": "Recupera las horas que se van en lo repetitivo", "d": "Elimina las tareas manuales que consumen la jornada de un asesor." },
         { "t": "Consistencia operativa", "d": "Cada lead recibe el mismo tratamiento, sin depender del criterio individual." },
         { "t": "Escalamiento automático", "d": "Conversaciones sin respuesta se reasignan solas: ningún lead se pierde." },
         { "t": "Onboarding instantáneo", "d": "Con macros, los agentes nuevos ejecutan procesos complejos desde el día uno." },
@@ -514,7 +514,7 @@
         "Etiquetas con colores para clasificación visual",
         "Horarios laborales por canal",
         "Bots o agentes IA asignados por inbox",
-        "Integraciones: Dialogflow, Slack, Google Translate, Linear, Motion, Cal.com y webhooks",
+        "Integraciones: Wasi, Fianly, Cal.com, Google Calendar, Slack, Notion, Linear, Shopify, Dialogflow, Google Translate y webhooks",
         "Logs de auditoría: quién hizo qué y cuándo",
         "SAML SSO para autenticación empresarial",
         "Auto-resolución de conversaciones por inactividad",

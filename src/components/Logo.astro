@@ -1,0 +1,45 @@
+---
+// Logotipo oficial de Yampi. Los assets salen de `public/brand-assets/` del
+// repo del producto: el original es un PNG embebido en un wrapper SVG (184 KB),
+// así que aquí se sirve recortado y optimizado (WebP 6 KB / PNG 13 KB a 3x).
+//
+// Pendiente: no existe vector real ni variante monocroma clara. El morado de
+// marca lee bien sobre claro y sobre el charcoal del footer, así que se usa el
+// mismo asset en los dos. Si el handoff trae el vector, se reemplaza aquí y
+// nada más (ADR-001 §8.1).
+const {
+  height = 26,
+  // `wordmark` = "Yampi" completo · `mark` = solo el bocallave.
+  variant = 'wordmark',
+  class: className = '',
+} = Astro.props;
+
+const RATIO = { wordmark: 318 / 84, mark: 1 };
+const width = Math.round(height * RATIO[variant]);
+const base = variant === 'mark' ? '/brand/yampi-mark' : '/brand/yampi-logo';
+---
+{variant === 'wordmark' ? (
+  <picture class={className}>
+    <source srcset={`${base}.webp`} type="image/webp" />
+    <img
+      src={`${base}.png`}
+      alt="Yampi"
+      width={width}
+      height={height}
+      style={`height: ${height}px; width: auto; display: block;`}
+      loading="eager"
+      decoding="async"
+    />
+  </picture>
+) : (
+  <img
+    class={className}
+    src={`${base}.png`}
+    alt="Yampi"
+    width={width}
+    height={height}
+    style={`height: ${height}px; width: ${width}px; display: block;`}
+    loading="eager"
+    decoding="async"
+  />
+)}

@@ -6,7 +6,41 @@ import { YAMPI_CALENDAR, YAMPI_WHATSAPP } from '../lib/site-copy.js';
 import '../styles/tokens.css';
 import '../styles/site.css';
 
-const { title, description } = Astro.props;
+const {
+  title,
+  description,
+  // Imagen de Open Graph. Asset definitivo pendiente del handoff (ADR-001 §8.1).
+  image = '/og-default.png',
+  noindex = false,
+} = Astro.props;
+
+// `Astro.site` viene de astro.config.mjs. El canonical se autorreferencia, igual
+// que en el sitio en vivo (ADR-001 §0.3) — eso es lo que hay que preservar.
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(image, Astro.site).href;
+
+const schemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Yampi',
+    url: Astro.site?.href,
+    logo: new URL('/favicon.svg', Astro.site).href,
+    description:
+      'Plataforma de operaciones para inmobiliarias: comunicaciones omnicanal, propiedades, contratos con firma electrónica, tesorería e IA.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Yampi',
+    applicationCategory: 'BusinessApplication',
+    applicationSubCategory: 'Real Estate Management Software',
+    operatingSystem: 'Web',
+    url: Astro.site?.href,
+    description,
+    publisher: { '@type': 'Organization', name: 'Yampi' },
+  },
+];
 ---
 <!DOCTYPE html>
 <html lang="es">
@@ -15,14 +49,36 @@ const { title, description } = Astro.props;
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{title}</title>
 {description && <meta name="description" content={description} />}
-{description && <meta property="og:title" content={title} />}
+<link rel="canonical" href={canonical} />
+<meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Yampi" />
+<meta property="og:locale" content="es_LA" />
+<meta property="og:title" content={title} />
 {description && <meta property="og:description" content={description} />}
-{description && <meta property="og:type" content="website" />}
-{description && <meta name="twitter:card" content="summary_large_image" />}
-{description && <meta name="twitter:title" content={title} />}
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
 {description && <meta name="twitter:description" content={description} />}
+<meta name="twitter:image" content={ogImage} />
+
 <link rel="icon" href="/favicon.svg" />
-<script src="https://app.yampi.ai/packs/js/calendar_sdk.js"></script>
+{schemas.map((schema) => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}
+{/*
+  `is:inline` es obligatorio. Sin él Astro lo empaqueta como
+  `import "https://app.yampi.ai/packs/js/calendar_sdk.js"`, y un import ES
+  cross-origin exige CORS — que ese archivo no envía (no hay
+  Access-Control-Allow-Origin). El navegador bloquea la carga, `YampiCalendar`
+  nunca queda definido y el botón de demo no abre nada.
+*/}
+<script is:inline src="https://app.yampi.ai/packs/js/calendar_sdk.js"></script>
 </head>
 <body>
 <Nav />
