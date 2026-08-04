@@ -25,7 +25,7 @@ const schemas = [
     '@type': 'Organization',
     name: 'Yampi',
     url: Astro.site?.href,
-    logo: new URL('/favicon.svg', Astro.site).href,
+    logo: new URL('/icon-512.png', Astro.site).href,
     description:
       'Plataforma de operaciones para inmobiliarias: comunicaciones omnicanal, propiedades, contratos con firma electrónica, tesorería e IA.',
   },
@@ -67,7 +67,17 @@ const schemas = [
 {description && <meta name="twitter:description" content={description} />}
 <meta name="twitter:image" content={ogImage} />
 
-<link rel="icon" href="/favicon.svg" />
+{/*
+  El favicon.svg anterior estaba roto: traía el <rect> morado de fondo y un
+  <image> SIN href, así que se pintaba como un cuadrado morado liso, sin el
+  bocallave (ADR-001 §8.3). Se sirve la cadena completa para que ningún
+  contexto quede sin icono.
+*/}
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 {schemas.map((schema) => (
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 ))}

@@ -495,7 +495,7 @@ Deuda encontrada en `public/brand-assets/` del repo del producto:
 |---|---|---|---|
 | 1 | **No hay vector.** Los tres "SVG" son PNG en base64 dentro de un wrapper SVG | `logo.svg` = 184 KB con 2 `<image>` y ningún `<path>` de letra | No escala sin pérdida. Se mitigó recortando y sirviendo WebP 6 KB / PNG 13 KB a 3× |
 | 2 | **`logo_dark.svg` es una copia exacta de `logo.svg`** | mismo md5 `c038b051…` | El nombre promete una variante para fondo oscuro que no existe. Se usa el morado en los dos; lee bien sobre `#1D1E24`, pero no hay versión monocroma clara |
-| 3 | El favicon del sitio es `logo_thumbnail.svg` tal cual: 90 KB de PNG embebido para un icono | `public/favicon.svg` | Funciona y es la marca correcta, pero pesa de más |
+| 3 | **El `favicon.svg` del sitio estaba roto.** Traía el `<rect fill="#9b51e0">` del fondo y un `<image>` **sin `href`**: alguien lo "optimizó" y le quitó el raster embebido. Los navegadores pintaban un cuadrado morado liso, sin bocallave | `public/favicon.svg` commiteado: 2570 bytes, `<image>` vacío | **Alta** — resuelto: reescrito con el arte real + cadena completa de iconos (`.ico`, PNG 16/32/180/512) |
 
 **Petición para el handoff (§8.1):** vector real del wordmark y del isotipo, más una **variante monocroma clara** para fondos oscuros. Con eso, `Logo.astro` se actualiza en un solo sitio.
 

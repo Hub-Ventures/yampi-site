@@ -1,11 +1,6 @@
 {
   "version": "0.0.1",
   "configurations": [
-    {
-      "name": "yampi-site",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "autoPort": true
-    }
+    { "name": "yampi-site", "runtimeExecutable": "npm", "runtimeArgs": ["run", "preview"], "autoPort": true }
   ]
 }
