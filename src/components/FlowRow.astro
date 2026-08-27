@@ -1,0 +1,35 @@
+---
+// Momento numerado del recorrido: copia a un lado, captura al otro, alternando.
+// La numeración es real — describe un orden que el lector necesita (primero
+// entra el mensaje, al final se cobra), no una decoración.
+import Shot from './Shot.astro';
+import Replaces from './Replaces.astro';
+
+const {
+  num,
+  title,
+  text,
+  // Módulos que viven en este momento. Opcional.
+  links = [],
+  // Ya resuelto por reemplaza() de lib/logos.js. Opcional.
+  replaces = [],
+  shot = {},
+  flip = false,
+} = Astro.props;
+---
+<div class={`flow-row reveal${flip ? ' flip' : ''}`}>
+  <div class="flow-copy">
+    <span class="flow-num">{num}</span>
+    <h3>{title}</h3>
+    <p>{text}</p>
+    {links.length > 0 && (
+      <ul class="flow-links">
+        {links.map((l) => <li class="flow-link">{l}</li>)}
+      </ul>
+    )}
+    {replaces.length > 0 && <Replaces items={replaces} />}
+  </div>
+  <div class="flow-shot">
+    <Shot {...shot} />
+  </div>
+</div>

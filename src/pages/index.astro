@@ -1,68 +1,133 @@
 ---
 // Home del sitio comercial Yampi.
-// Cambia HERO_VARIANT a 'claro' | 'oscuro' | 'split' para usar otra variante de hero.
 import BaseLayout from '../layouts/BaseLayout.astro';
-import HeroClaro from '../components/heroes/HeroClaro.astro';
-import HeroOscuro from '../components/heroes/HeroOscuro.astro';
-import HeroSplit from '../components/heroes/HeroSplit.astro';
 import CtaFinal from '../components/CtaFinal.astro';
-import ShotPlaceholder from '../components/ShotPlaceholder.astro';
+import Shot from '../components/Shot.astro';
+import Button from '../components/Button.astro';
 import Icon from '../components/Icon.astro';
-import data from '../data/modules.json';
-import { CAT_ORDER, CAT_COLOR, groupByCat } from '../lib/categories.js';
+import FlowRow from '../components/FlowRow.astro';
+import Swap from '../components/Swap.astro';
+import { SISTEMA_BASE, SUPERFICIES, SUITES, LIVIA } from '../lib/platform.js';
+import { reemplaza } from '../lib/logos.js';
+import { HOME_PAGE_TITLE, HOME_HERO_TITLE, HOME_HERO_DESCRIPTION, getGoogleSignupUrl } from '../lib/site-copy.js';
 
-const HERO_VARIANT = 'claro';
-const MOSTRAR_LOGOS = true;
+// Apagado hasta tener logos reales de cliente.
+const MOSTRAR_LOGOS = false;
 
-const byCat = groupByCat(data);
+const notas = [
+  {
+    title: 'Contactos vive en tu suite, no en todas',
+    text: 'Un asesor comercial y uno de cartera abren el mismo contacto desde su propia suite. Nadie se mete en la cartera del otro ni ve lo que no le toca.',
+    icon: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8M22 21v-2a4 4 0 0 0-3-3.9',
+  },
+  {
+    title: 'La firma empieza donde se usa',
+    text: 'Firmar contratos arranca dentro de la suite administrativa, pegado al cobro que habilita. Los documentos firmados, en cambio, son de todos: viven en la biblioteca del sistema base, donde cualquiera los consulta.',
+    icon: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M12 18v-6M9 15l3-3 3 3',
+  },
+];
 
-const capacidades = [
+const momentos = [
   {
     num: '01',
-    cat: 'atiende',
-    title: 'Atiende cada lead en segundos, en cualquier canal',
-    text: 'WhatsApp, Instagram, TikTok, email y llamadas en una sola bandeja. Livia, tu asistente IA, califica leads, envía fotos de propiedades y agenda visitas mientras tu equipo duerme.',
-    label: 'Screenshot: bandeja omnicanal con Livia',
+    title: 'Alguien pregunta por un apartamento',
+    text: 'El mensaje entra por WhatsApp, Instagram o el chat de tu página y cae en una sola bandeja. Livia contesta al momento: pregunta qué busca, manda las fotos y cuadra la visita con el asesor que le toca. Cuando el asesor entra a responder, ya sabe todo lo que se habló.',
+    links: ['Chats', 'Livia · Asistente IA', 'Centro de Ayuda', 'Niveles de servicio'],
+    replaces: reemplaza(['WhatsApp Business', 'Zendesk', 'ManyChat']),
+    shot: {
+      src: '/screenshots/chat-bandeja.webp',
+      ratio: '1500 / 1047',
+      alt: 'Bandeja de conversaciones: el chat de WhatsApp, la propiedad de interés y la etapa del negocio en la misma pantalla',
+    },
     flip: false,
   },
   {
     num: '02',
-    cat: 'vende',
-    title: 'Convierte tu inventario en negocios cerrados',
-    text: 'Propiedades conectadas al pipeline, visitas que el cliente agenda solo y un perfil público que convierte a cada asesor en una landing de captación. Del primer mensaje a la firma, sin perder el contexto.',
-    label: 'Screenshot: pipeline de oportunidades',
+    title: 'Ese interesado se vuelve un negocio',
+    text: 'El inmueble deja de ser una fila en una hoja de cálculo: es una ficha con fotos, estado y dueño, amarrada al negocio y a la persona. En el tablero ves en qué etapa va cada uno, cuánto vale y quién responde por él.',
+    links: ['Contactos y Empresas', 'Propiedades', 'Calendario', 'Oportunidades', 'Perfil del asesor'],
+    replaces: reemplaza(['Domus', 'SIMI', 'HubSpot']),
+    shot: {
+      src: '/screenshots/pipeline-tablero.webp',
+      ratio: '1280 / 820',
+      alt: 'Tablero de negocios por etapa, con el valor de cada oportunidad',
+    },
     flip: true,
   },
   {
     num: '03',
-    cat: 'cobra',
-    title: 'Firma contratos en horas y cobra sin perseguir a nadie',
-    text: 'Firma electrónica con OTP por WhatsApp, contratos que activan la suscripción de cobro automáticamente, pasarelas colombianas con PSE y desembolsos a propietarios sin conciliación manual.',
-    label: 'Screenshot: dashboard de tesorería',
+    title: 'Se firma, y empieza a entrar plata',
+    text: 'El contrato se firma con un código que llega por WhatsApp, sin imprimir ni instalar nada. Al quedar firmado el cobro queda andando: el inquilino paga por PSE o deja su tarjeta, y cada mes lo del propietario sale con la comisión y la administración ya descontadas.',
+    links: ['Firma electrónica de contratos', 'Tesorería y Cobros'],
+    replaces: reemplaza(['Excel', 'Arrendasoft', 'DocuSign']),
+    shot: {
+      src: '/screenshots/tesoreria-suscripciones.webp',
+      ratio: '1600 / 1000',
+      alt: 'Suscripciones de cobro de arrendamiento activas, con su ciclo y su estado',
+    },
     flip: false,
   },
   {
     num: '04',
-    cat: 'automatiza',
-    title: 'Escala tu operación sin contratar más gente',
-    text: 'Automatizaciones por eventos, campañas masivas de WhatsApp, reportes en tiempo real y permisos a la medida. La operación crece; el caos no.',
-    label: 'Screenshot: editor de automatizaciones',
+    title: 'Y la operación aguanta crecer',
+    text: 'Le dices a Yampi qué hacer cuando algo pasa y lo hace siempre igual: repartir los mensajes según quién esté libre, avisar de un pago vencido, mover un negocio de etapa. Y cada persona del equipo ve solo lo que le toca ver.',
+    links: ['Automatizaciones', 'Campañas', 'Informes'],
+    replaces: reemplaza(['Zapier', 'Make', 'ChatGPT']),
+    shot: {
+      src: '/screenshots/tareas-equipo.webp',
+      ratio: '1380 / 900',
+      alt: 'Tareas del día del equipo: qué le toca a cada persona y qué está por vencerse',
+    },
     flip: true,
   },
 ];
+
+const antes = [
+  'Un CRM que no sabe de arriendos',
+  'La bandeja de WhatsApp por aparte',
+  'El Excel de cobros y cartera',
+  'Contratos que van y vienen por correo',
+  'La pasarela de pagos en otra cuenta',
+  'La hoja de propiedades y los portales',
+];
+
+const despues = [
+  'Todos los canales en una bandeja, con IA',
+  'Contactos, inmuebles y negocios conectados',
+  'Contratos con firma electrónica',
+  'Cobro del arriendo y giro al propietario',
+  'Automatizaciones y reportes',
+  'Una sola cuenta, sin conectar nada',
+];
 ---
-<BaseLayout
-  title="Yampi — La plataforma para operar toda tu inmobiliaria"
-  description="Comunicaciones omnicanal, propiedades, contratos con firma electrónica, cobro de arriendos e IA inmobiliaria en una sola plataforma. La alternativa todo-en-uno a tu CRM, tu firma y tu pasarela de cobros, hecha para Latinoamérica."
->
-  {HERO_VARIANT === 'claro' && <HeroClaro />}
-  {HERO_VARIANT === 'oscuro' && <HeroOscuro />}
-  {HERO_VARIANT === 'split' && <HeroSplit />}
+<BaseLayout title={HOME_PAGE_TITLE} description={HOME_HERO_DESCRIPTION}>
+
+  <section class="hero-claro">
+    <div class="hero-claro-inner">
+      <div class="hero-claro-copy">
+        <h1 class="display-xl">{HOME_HERO_TITLE}</h1>
+        <p class="lede">{HOME_HERO_DESCRIPTION}</p>
+      </div>
+      <div class="hero-actions">
+        <Button variant="google" size="lg" href={getGoogleSignupUrl()} label="Comenzar con Google" />
+        <Button action="demo" size="lg" />
+      </div>
+    </div>
+    <div class="hero-shot">
+      <Shot
+        src="/screenshots/livia-acciones.webp"
+        ratio="1500 / 900"
+        size="hero"
+        alt="Configuración de un agente de Livia: sus sub-agentes, las herramientas que puede usar y la sala de pruebas"
+        priority
+      />
+    </div>
+  </section>
 
   {MOSTRAR_LOGOS && (
-    <section class="logos-band" data-screen-label="Franja de logos">
+    <section class="logos-band">
       <div class="wrap">
-        <p>Equipos inmobiliarios que operan con Yampi</p>
+        <p>Inmobiliarias que operan con Yampi</p>
         <div class="logos-row">
           {[1, 2, 3, 4, 5].map(() => <div class="logo-ph">Logo cliente</div>)}
         </div>
@@ -70,135 +135,105 @@ const capacidades = [
     </section>
   )}
 
-  <section class="section" id="ciclo" data-screen-label="El ciclo completo">
+  <section class="section" id="plataforma">
     <div class="wrap">
-      <span class="kicker reveal">Una sola plataforma</span>
-      <h2 class="display-lg reveal" style="margin-top: 14px;">Todo el ciclo inmobiliario,<br />conectado de punta a punta</h2>
-      <p class="lede reveal" style="max-width: 700px; margin-top: 18px;">Cada etapa alimenta la siguiente sin exportar datos ni cambiar de herramienta: el lead que entra por WhatsApp termina como un arriendo que se cobra y se desembolsa solo.</p>
-      <div class="cycle reveal">
-        <div class="cycle-line"></div>
-        <div class="cycle-step">
-          <div class="cycle-node" style="background: var(--blue-3); color: var(--blue-11);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg></div>
-          <span class="cycle-num">01</span>
-          <h4>Captación</h4>
-          <p>Leads de WhatsApp, Instagram y web a un solo pipeline.</p>
-        </div>
-        <div class="cycle-step">
-          <div class="cycle-node" style="background: var(--iris-3); color: var(--iris-11);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" /><path d="M9 22v-4h6v4" /><path d="M8 6h.01M16 6h.01M8 10h.01M16 10h.01" /></svg></div>
-          <span class="cycle-num">02</span>
-          <h4>Propiedades</h4>
-          <p>Inventario y disponibilidad enlazados al negocio.</p>
-        </div>
-        <div class="cycle-step">
-          <div class="cycle-node" style="background: var(--yampi-2); color: var(--yampi-11);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><path d="m9 15 2 2 4-4" /></svg></div>
-          <span class="cycle-num">03</span>
-          <h4>Contratos</h4>
-          <p>Firma electrónica que activa el cobro al cerrar.</p>
-        </div>
-        <div class="cycle-step">
-          <div class="cycle-node" style="background: var(--amber-3); color: var(--amber-11);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5" /><path d="m21 2-9.6 9.6" /><path d="m15.5 7.5 3 3L22 7l-3-3" /></svg></div>
-          <span class="cycle-num">04</span>
-          <h4>Arriendo</h4>
-          <p>Tenencia activa, con agenda y seguimiento integrados.</p>
-        </div>
-        <div class="cycle-step">
-          <div class="cycle-node" style="background: var(--teal-3); color: var(--teal-11);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg></div>
-          <span class="cycle-num">05</span>
-          <h4>Cobros</h4>
-          <p>Recaudo recurrente, conciliación y desembolso al dueño.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      <h2 class="display-lg reveal">La operación de siempre, pero controlada,<br />organizada y automatizada</h2>
+      <p class="lede reveal" style="max-width: 720px; margin-top: 20px;">Usa lo que realmente necesita tu equipo, y escala tus operaciones con la ayuda de Livia, la Inteligencia Artificial para tus operaciones inmobiliarias.</p>
 
-  <section class="section" id="modulos" data-screen-label="Módulos por categoría">
-    <div class="wrap">
-      <h2 class="display-lg reveal">Empieza por un módulo,<br />o úsalo todo en conjunto.</h2>
-      <p class="lede reveal" style="max-width: 720px; margin-top: 20px;">Dieciséis módulos que cubren el ciclo inmobiliario completo —atención, ventas, contratos, cobros y automatización—. Juntos reemplazan tu CRM, tu bandeja de WhatsApp, tu firma electrónica, tu pasarela de cobros y las hojas de cálculo, sin integraciones frágiles entre ellos.</p>
-      <div class="cat-grid">
-        {CAT_ORDER.map((c, i) => (
-          <div class="card cat-card reveal">
-            <span class="num">{`0${i + 1}`}</span>
-            <h3>{data.categories[c].label}</h3>
-            <div class="cat-accent" style={`background: ${CAT_COLOR[c]}`}></div>
-            <p class="tagline">{data.categories[c].tagline}</p>
-            <ul>
-              {byCat[c].map((m) => (
-                <li>
-                  <a href={`/modulos/${m.slug}/`}>
-                    <span>{m.name}</span>
+      <div class="arch reveal">
+        <div class="arch-base">
+          <div class="arch-base-head">
+            <h3>{SISTEMA_BASE.label}</h3>
+            <p>{SISTEMA_BASE.tagline}</p>
+          </div>
+          <div class="arch-surfaces">
+            {SUPERFICIES.map((s) => (
+              <a class="arch-surface" href={SISTEMA_BASE.href}>
+                <span class="arch-surface-icon">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={s.icon}></path></svg>
+                </span>
+                <span class="arch-surface-label">{s.label}</span>
+                <span class="arch-surface-note">{s.note}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div class="arch-suites">
+          {SUITES.map((s) => (
+            <div class="arch-suite">
+              <span class="arch-suite-num">{s.num}</span>
+              <h3>{s.label}</h3>
+              <div class="arch-suite-accent" style={`background: ${s.color};`}></div>
+              <p class="arch-suite-tagline">{s.tagline}</p>
+              <p class="arch-suite-quien">La habita {s.quien}</p>
+              <div class="arch-suite-items">
+                {s.items.map((item) => (
+                  <a href={s.href}>
+                    <span>{item}</span>
                     <Icon name="arrow-right" size={14} />
                   </a>
-                </li>
-              ))}
-            </ul>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="arch-livia">
+          <div class="arch-livia-id">
+            <span class="arch-livia-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v2M7.5 7h9a2.5 2.5 0 0 1 2.5 2.5v6A2.5 2.5 0 0 1 16.5 18h-9A2.5 2.5 0 0 1 5 15.5v-6A2.5 2.5 0 0 1 7.5 7zM9.5 12h.01M14.5 12h.01M3 11v3M21 11v3M9 21h6"></path></svg>
+            </span>
+            <div>
+              <h3>Livia</h3>
+              <p>Atraviesa todo lo de arriba</p>
+            </div>
+          </div>
+          <p class="arch-livia-text">No es una pantalla que se visita: se configura una vez —qué sabe, qué puede hacer y en qué bandejas entra— y desde ahí trabaja adentro del sistema base y de las tres suites. Contesta, agenda, clasifica y avisa con el mismo dato que ve tu equipo.</p>
+          <a class="btn btn-primary" href={LIVIA.href}>Conoce a Livia</a>
+        </div>
+      </div>
+
+      <div class="notas reveal">
+        {notas.map((n) => (
+          <div class="nota">
+            <span class="nota-icon">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={n.icon}></path></svg>
+            </span>
+            <div>
+              <h4>{n.title}</h4>
+              <p>{n.text}</p>
+            </div>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="section" id="capacidades" style="background: var(--bg-card); border-top: 1px solid var(--border-weak); border-bottom: 1px solid var(--border-weak);" data-screen-label="Capacidades">
+  <section class="section section-paper" id="recorrido">
     <div class="wrap">
-      <span class="kicker reveal">Capacidades</span>
-      <h2 class="display-lg reveal" style="margin-top: 14px; margin-bottom: 8px;">Todo lo que Yampi hace<br />por tu inmobiliaria</h2>
-      <p class="lede reveal" style="max-width: 680px; margin-bottom: 8px;">Cuatro frentes que cubren el ciclo de punta a punta: desde el primer “hola” por WhatsApp hasta el desembolso al propietario.</p>
-
-      {capacidades.map((cap) => (
-        <div class={`cap-block reveal${cap.flip ? ' flip' : ''}`}>
-          <div class="cap-copy">
-            <span class="num">{cap.num}</span>
-            <h3>{cap.title}</h3>
-            <p>{cap.text}</p>
-            <div class="cap-links">
-              {byCat[cap.cat].map((m) => (
-                <a href={`/modulos/${m.slug}/`}>
-                  <Icon name="arrow-right" size={14} />
-                  <span>{m.name}</span>
-                </a>
-              ))}
-            </div>
-          </div>
-          <ShotPlaceholder height={400} label={cap.label} />
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <section class="section section-tint" id="reemplazas" data-screen-label="Lo que reemplazas">
-    <div class="wrap">
-      <div style="text-align: center; max-width: 720px; margin: 0 auto;">
-        <span class="kicker reveal">Consolidación</span>
-        <h2 class="display-lg reveal" style="margin-top: 14px;">Una plataforma en vez de<br />seis herramientas sueltas</h2>
-        <p class="lede reveal" style="margin-top: 18px;">Cada herramienta que conectas a mano es un punto de fuga: datos que no cuadran, leads que se enfrían y horas de copiar y pegar. Yampi reúne toda la operación en una sola cuenta.</p>
-      </div>
-      <div class="swap reveal">
-        <div class="swap-col swap-old">
-          <span class="swap-tag">Tu stack hoy</span>
-          <ul>
-            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg></span>CRM genérico</li>
-            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg></span>Bandeja de WhatsApp por separado</li>
-            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg></span>Excel de cobros y cartera</li>
-            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg></span>Firma de contratos por correo</li>
-            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg></span>Pasarela de pagos aparte</li>
-            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg></span>Hoja de propiedades y portales</li>
-          </ul>
-        </div>
-        <div class="swap-arrow"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></div>
-        <div class="swap-col swap-new">
-          <span class="swap-tag swap-tag-brand">Con Yampi</span>
-          <ul>
-            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span>Comunicación omnicanal con IA</li>
-            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span>Contactos, propiedades y pipeline</li>
-            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span>Contratos con firma electrónica</li>
-            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span>Tesorería: cobros y desembolsos</li>
-            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span>Automatizaciones y reportes</li>
-            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg></span>Una sola cuenta, sin integraciones</li>
-          </ul>
-        </div>
+      <span class="kicker reveal">Cómo funciona</span>
+      <h2 class="display-lg reveal" style="margin-top: 14px;">Un arriendo en Yampi,<br />de principio a fin</h2>
+      <p class="lede reveal" style="max-width: 680px; margin-top: 18px;">Cuatro momentos del mismo negocio. Lo que queda registrado en el primero es lo que evita repetir trabajo en el último.</p>
+      <div class="flow">
+        {momentos.map((m) => <FlowRow {...m} />)}
       </div>
     </div>
   </section>
 
-  <CtaFinal title="Mira Yampi funcionando con tus propias propiedades." />
+  <section class="section section-tint" id="reemplazas">
+    <div class="wrap">
+      <div class="section-head-center reveal">
+        <span class="kicker">Una sola cuenta</span>
+        <h2 class="display-lg" style="margin-top: 14px;">Una plataforma en vez de<br />seis herramientas sueltas</h2>
+        <p class="lede" style="margin-top: 18px;">Hoy la operación vive repartida y alguien tiene que pasar los datos a mano de un lado al otro. Ahí se pierden los interesados, se descuadra la cartera y se van las horas.</p>
+      </div>
+      <Swap antesLabel="Como está hoy" antes={antes} despues={despues} />
+    </div>
+  </section>
+
+  <CtaFinal
+    title="Míralo con tus<br />propias propiedades."
+    text="Nos cuentas cómo arriendas y cobras hoy, y te mostramos cómo quedaría con tus propios inmuebles. Treinta minutos, sin compromiso."
+  />
 </BaseLayout>

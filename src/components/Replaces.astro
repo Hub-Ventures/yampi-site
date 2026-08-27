@@ -1,0 +1,21 @@
+---
+// Fila "Reemplaza": las herramientas que deja de necesitar quien usa este
+// módulo. Recibe la lista ya resuelta por reemplaza() de lib/logos.js.
+const { items } = Astro.props;
+---
+<div class="replaces">
+  <span class="replaces-label">Reemplaza</span>
+  {items.map((r) => (
+    <span class="replaces-item">
+      {r.src && (
+        <span
+          class="replaces-logo"
+          role="img"
+          aria-label={r.name}
+          style={`width: ${r.w}; height: ${r.h}; background-image: url(${r.src});`}
+        ></span>
+      )}
+      {r.showName && <span class="replaces-name">{r.name}</span>}
+    </span>
+  ))}
+</div>

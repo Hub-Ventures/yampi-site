@@ -1,0 +1,37 @@
+---
+// Hero de página interna: píldora de sección, titular, entradilla, dos CTAs y
+// la captura de la pantalla principal. El acento tiñe la píldora y el degradado
+// de fondo, así que cada suite se reconoce antes de leer el titular.
+import Shot from './Shot.astro';
+import Button from './Button.astro';
+
+const {
+  // 'yampi' | 'blue' | 'teal' | 'neutral'
+  accent = 'yampi',
+  badge,
+  title,
+  lede,
+  secondaryLabel,
+  secondaryHref,
+  shot = {},
+} = Astro.props;
+---
+<section class={`page-hero accent-${accent}`}>
+  <div class="page-hero-glow" aria-hidden="true"></div>
+  <div class="wrap page-hero-inner">
+    <div class="page-hero-copy">
+      <span class="badge-pill"><span class="badge-dot"></span>{badge}</span>
+      <h1 class="display-xl" set:html={title} />
+      <p class="lede">{lede}</p>
+      <div class="hero-actions">
+        <Button action="demo" size="lg" />
+        {secondaryHref && (
+          <Button variant="outline" size="lg" href={secondaryHref}>{secondaryLabel}</Button>
+        )}
+      </div>
+    </div>
+    <div class="page-hero-shot">
+      <Shot size="hero" {...shot} priority />
+    </div>
+  </div>
+</section>

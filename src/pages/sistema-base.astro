@@ -1,0 +1,102 @@
+---
+// Sistema base — las cinco superficies que usa todo el equipo, sin importar su rol.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import FlowRow from '../components/FlowRow.astro';
+import Swap from '../components/Swap.astro';
+import NextCards from '../components/NextCards.astro';
+import CtaFinal from '../components/CtaFinal.astro';
+import { reemplaza } from '../lib/logos.js';
+
+const DESCRIPTION =
+  'Los chats, los inmuebles, la agenda, los documentos y los informes de tu inmobiliaria, en un solo lugar y a la mano de todo el equipo.';
+
+const superficies = [
+  {
+    num: '01',
+    title: 'Todos los canales, una bandeja',
+    text: 'WhatsApp, Instagram, el chat de tu página y el correo caen en el mismo lugar, y todo el equipo ve la misma conversación.',
+    replaces: reemplaza(['WhatsApp Business', 'Gmail', 'Instagram Direct']),
+    shot: {
+      src: '/screenshots/chat-bandeja.webp',
+      ratio: '1500 / 1047',
+      alt: 'Bandeja de conversaciones con la ficha del contacto y la propiedad de interés',
+    },
+    flip: false,
+  },
+  {
+    num: '02',
+    title: 'Los documentos son de todos',
+    text: 'La biblioteca guarda contratos, soportes y anexos. Quien necesita un documento lo tiene a la mano, no lo pide por chat.',
+    replaces: reemplaza(['Google Drive', 'Dropbox', 'Carpetas compartidas']),
+    shot: {
+      src: '/screenshots/documentos.webp',
+      ratio: '1280 / 820',
+      alt: 'Biblioteca de documentos: contratos, soportes y anexos con su estado',
+    },
+    flip: true,
+  },
+];
+
+const antes = [
+  'Cada asesor atiende desde su teléfono personal',
+  'La hoja de inmuebles la mantiene una sola persona',
+  'Las agendas viven en calendarios sueltos',
+  'Los contratos, en carpetas compartidas sin orden',
+  'El reporte del mes se arma copiando y pegando',
+];
+
+const despues = [
+  'Todos los canales en una bandeja del equipo',
+  'El inventario con su estado, para todos',
+  'Cada quien con su agenda, en el mismo calendario',
+  'Una biblioteca con contratos, soportes y anexos',
+  'Informes que salen del dato que ya está adentro',
+];
+
+const sigue = [
+  { kicker: 'Suite Comercial', href: '/suites/comercial/', title: 'Vender', text: 'Oportunidades, contactos, empresas y campañas.', cta: 'Ver la suite' },
+  { kicker: 'Suite Servicio', href: '/suites/servicio/', title: 'Atender', text: 'Requerimientos con plazo y centro de ayuda.', cta: 'Ver la suite' },
+  { kicker: 'Suite Administrativa', href: '/suites/administrativa/', title: 'Cobrar', text: 'Firma electrónica, tesorería y giros.', cta: 'Ver la suite' },
+];
+---
+<BaseLayout title="Sistema base — Chats, propiedades, agenda y documentos | Yampi" description={DESCRIPTION}>
+
+  <PageHero
+    accent="neutral"
+    badge="Sistema base"
+    title="El día a día de tu equipo,<br />en un solo lugar."
+    lede="Los chats, los inmuebles, la agenda, los documentos y los informes. Están siempre a la mano, para cualquiera del equipo."
+    secondaryLabel="Ver qué incluye"
+    secondaryHref="#incluye"
+    shot={{
+      src: '/screenshots/propiedades.webp',
+      ratio: '1440 / 880',
+      alt: 'Inventario de propiedades con precio, características, estado y encargado de cada inmueble',
+    }}
+  />
+
+  <section class="section section-paper" id="incluye">
+    <div class="wrap">
+      <h2 class="display-md reveal">Cinco superficies compartidas</h2>
+      <p class="lede reveal" style="max-width: 660px; margin-top: 18px;">No son aplicaciones separadas, son la base de tu operación en un mismo lugar.</p>
+      <div class="flow">
+        {superficies.map((s) => <FlowRow {...s} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tint">
+    <div class="wrap">
+      <div class="section-head-center reveal">
+        <h2 class="display-md">Lo que reemplaza</h2>
+        <p class="lede" style="margin-top: 18px;">Las carpetas compartidas, el teléfono personal del asesor y la hoja de inmuebles que solo una persona mantiene.</p>
+      </div>
+      <Swap antes={antes} despues={despues} narrow />
+    </div>
+  </section>
+
+  <NextCards items={sigue} />
+
+  <CtaFinal />
+</BaseLayout>

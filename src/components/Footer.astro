@@ -1,28 +1,28 @@
 ---
-// Footer oscuro con columnas de módulos por categoría.
-import data from '../data/modules.json';
-import { CAT_ORDER, groupByCat } from '../lib/categories.js';
+// Footer oscuro, con las mismas columnas del mega-menú.
+import { NAV_GROUPS } from '../lib/platform.js';
+import Logo from './Logo.astro';
 
-const byCat = groupByCat(data);
+const year = new Date().getFullYear();
 ---
 <footer class="footer">
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <span class="wordmark">yampi</span>
+        <Logo height={28} />
         <p style="margin-top: 14px; max-width: 260px;">La plataforma todo-en-uno para operar tu inmobiliaria de punta a punta en Latinoamérica.</p>
       </div>
-      {CAT_ORDER.map((c) => (
+      {NAV_GROUPS.map((g) => (
         <div>
-          <h5>{data.categories[c].label}</h5>
-          {byCat[c].map((m) => (
-            <a href={`/modulos/${m.slug}/`} style="display: block;">{m.name}</a>
+          <h5>{g.label}</h5>
+          {g.items.map((item) => (
+            <a href={g.href} style="display: block;">{item}</a>
           ))}
         </div>
       ))}
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Yampi. Todos los derechos reservados.</span>
+      <span>© {year} Yampi. Todos los derechos reservados.</span>
       <span>Hecho para el sector inmobiliario latinoamericano</span>
     </div>
   </div>
