@@ -1,0 +1,42 @@
+---
+// "Lo que reemplaza": la operación de hoy contra la misma operación en Yampi.
+const {
+  antesLabel = 'Hoy',
+  despuesLabel = 'Con Yampi',
+  antes = [],
+  despues = [],
+  // El bloque del home va a ancho completo; el de las páginas internas, a 1000px.
+  narrow = false,
+} = Astro.props;
+---
+<div class={`swap reveal${narrow ? ' swap-narrow' : ''}`}>
+  <div class="swap-col swap-old">
+    <span class="swap-tag">{antesLabel}</span>
+    <ul>
+      {antes.map((a) => (
+        <li>
+          <span class="ic">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+          </span>
+          {a}
+        </li>
+      ))}
+    </ul>
+  </div>
+  <div class="swap-arrow" aria-hidden="true">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+  </div>
+  <div class="swap-col swap-new">
+    <span class="swap-tag swap-tag-brand">{despuesLabel}</span>
+    <ul>
+      {despues.map((d) => (
+        <li>
+          <span class="ic">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+          </span>
+          {d}
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>

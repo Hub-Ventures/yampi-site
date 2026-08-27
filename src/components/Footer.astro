@@ -1,10 +1,8 @@
 ---
-// Footer oscuro con columnas de módulos por categoría.
-import data from '../data/modules.json';
-import { CAT_ORDER, groupByCat } from '../lib/categories.js';
+// Footer oscuro, con las mismas columnas del mega-menú.
+import { NAV_GROUPS } from '../lib/platform.js';
 import Logo from './Logo.astro';
 
-const byCat = groupByCat(data);
 const year = new Date().getFullYear();
 ---
 <footer class="footer">
@@ -14,11 +12,11 @@ const year = new Date().getFullYear();
         <Logo height={28} />
         <p style="margin-top: 14px; max-width: 260px;">La plataforma todo-en-uno para operar tu inmobiliaria de punta a punta en Latinoamérica.</p>
       </div>
-      {CAT_ORDER.map((c) => (
+      {NAV_GROUPS.map((g) => (
         <div>
-          <h5>{data.categories[c as keyof typeof data.categories].label}</h5>
-          {byCat[c as keyof typeof byCat].map((m: (typeof data)['modules'][number]) => (
-            <a href={`/modulos/${m.slug}/`} style="display: block;">{m.name}</a>
+          <h5>{g.label}</h5>
+          {g.items.map((item) => (
+            <a href={g.href} style="display: block;">{item}</a>
           ))}
         </div>
       ))}

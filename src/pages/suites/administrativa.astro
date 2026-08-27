@@ -1,0 +1,93 @@
+---
+// Suite Administrativa — contratos firmados, arriendos cobrados y giros al día.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import FlowRow from '../../components/FlowRow.astro';
+import Swap from '../../components/Swap.astro';
+import NextCards from '../../components/NextCards.astro';
+import CtaFinal from '../../components/CtaFinal.astro';
+import { reemplaza } from '../../lib/logos.js';
+
+const DESCRIPTION =
+  'El contrato firmado deja el cobro andando. A fin de mes la plata del propietario sale con la comisión y la cuota de administración ya descontadas.';
+
+const bloques = [
+  {
+    num: '01',
+    title: 'Se firma por WhatsApp',
+    text: 'El firmante recibe un código, firma desde el teléfono y queda el certificado con hora y verificación. Sin instalar nada.',
+    replaces: reemplaza(['DocuSign', 'Firma en papel', 'Correo']),
+    shot: { label: 'Constructor de contratos con firma electrónica' },
+    flip: false,
+  },
+  {
+    num: '02',
+    title: 'Quién pagó y quién no',
+    text: 'La cartera por días de mora, con el saldo de cada ciclo. Ves la mora antes de que se vuelva un problema de tres meses.',
+    replaces: reemplaza(['Excel', 'Arrendasoft', 'Softinm']),
+    shot: { label: 'Reporte de cartera por días de mora' },
+    flip: true,
+  },
+];
+
+const antes = [
+  'La pasarela de pagos en una cuenta aparte',
+  'El Excel de la cartera con cinco pestañas',
+  'Contratos que van y vienen por correo',
+  'Cuadrar a mano cuánto le toca a cada propietario',
+  'La mora se descubre cuando ya lleva tres meses',
+];
+
+const despues = [
+  'Cobro por PSE, tarjeta, efectivo o cheque',
+  'La cartera al día, por días de mora',
+  'Firma electrónica por WhatsApp, con certificado',
+  'El giro sale con comisión y administración descontadas',
+  'La mora se ve el primer día',
+];
+
+const sigue = [
+  { kicker: 'Livia', href: '/livia/', title: 'Recuerda el pago', text: 'Livia avisa del vencimiento y responde por el estado de cuenta.', cta: 'Conoce a Livia' },
+  { kicker: 'Sistema base', href: '/sistema-base/', title: 'La biblioteca', text: 'El contrato firmado queda donde todo el equipo lo encuentra.', cta: 'Ver el sistema base' },
+  { kicker: 'Suite Comercial', href: '/suites/comercial/', title: 'De dónde viene', text: 'El negocio cerrado es el que deja el cobro andando.', cta: 'Ver la suite' },
+];
+---
+<BaseLayout title="Suite Administrativa — Firma electrónica, tesorería y giros | Yampi" description={DESCRIPTION}>
+
+  <PageHero
+    accent="teal"
+    badge="Suite Administrativa"
+    title="El arriendo se cobra solo<br />y el dueño recibe lo suyo"
+    lede="El contrato firmado deja el cobro andando. A fin de mes la plata del propietario sale con la comisión y la cuota de administración ya descontadas."
+    secondaryLabel="Ver tesorería"
+    secondaryHref="#detalle"
+    shot={{
+      src: '/screenshots/tesoreria.png',
+      alt: 'Reglas operativas de tesorería: moneda, día de cobro, días de gracia y automatización del cobro',
+    }}
+  />
+
+  <section class="section section-paper" id="detalle">
+    <div class="wrap">
+      <h2 class="display-md reveal">Firmar, cobrar y girar</h2>
+      <p class="lede reveal" style="max-width: 660px; margin-top: 18px;">Tres momentos que hoy viven en tres herramientas distintas y aquí son el mismo hilo.</p>
+      <div class="flow">
+        {bloques.map((b) => <FlowRow {...b} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tint">
+    <div class="wrap">
+      <div class="section-head-center reveal">
+        <h2 class="display-md">Lo que reemplaza</h2>
+        <p class="lede" style="margin-top: 18px;">La pasarela en otra cuenta, el Excel de la cartera y los contratos que van y vienen por correo.</p>
+      </div>
+      <Swap antes={antes} despues={despues} narrow />
+    </div>
+  </section>
+
+  <NextCards items={sigue} />
+
+  <CtaFinal />
+</BaseLayout>

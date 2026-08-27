@@ -1,0 +1,25 @@
+---
+// "Qué sigue": a dónde va el lector desde esta página. Cada tarjeta nombra el
+// destino, por qué se conecta con lo que acaba de leer, y qué encontrará ahí.
+import Icon from './Icon.astro';
+
+const { title = 'Qué sigue', items = [] } = Astro.props;
+---
+<section class="section section-next">
+  <div class="wrap">
+    <h2 class="display-md reveal">{title}</h2>
+    <div class="next-grid reveal">
+      {items.map((n) => (
+        <a class="next-card" href={n.href}>
+          <span class="next-kicker">{n.kicker}</span>
+          <span class="next-title">{n.title}</span>
+          <span class="next-text">{n.text}</span>
+          <span class="next-cta">
+            {n.cta}
+            <Icon name="arrow-right" size={15} />
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

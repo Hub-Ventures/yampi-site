@@ -1,23 +1,18 @@
 ---
-// Sección CTA final oscura, reutilizada en home y páginas de módulo.
+// Sección CTA final oscura, al cierre de cada página.
 import Button from './Button.astro';
 
 const {
-  title = 'Mira Yampi funcionando con tus propias propiedades.',
-  text = 'Agenda 30 minutos con nuestro equipo. Te mostramos la plataforma con casos reales de inmobiliarias como la tuya — sin compromiso.',
-  bordered = false,
+  title = 'Míralo con tus<br />propias propiedades.',
+  text = 'Nos cuentas cómo arriendas y cobras hoy, y te mostramos cómo quedaría con tus propios inmuebles. Treinta minutos, sin compromiso.',
 } = Astro.props;
 ---
-<section
-  class="section-dark cta-final"
-  id="demo"
-  style={bordered ? 'border-top: 1px solid rgba(255,255,255,0.1);' : undefined}
->
+<section class="section-dark cta-final" id="demo">
   <div class="wrap">
-    <h2 class="display-lg reveal" style="color: var(--fg-on-dark);">{title}</h2>
+    <h2 class="display-lg reveal" style="color: var(--fg-on-dark);" set:html={title} />
     <p class="lede reveal">{text}</p>
     <div class="hero-actions reveal">
-      <Button action="demo" variant="on-dark" />
+      <Button action="demo" variant="on-dark" size="lg" />
     </div>
   </div>
 </section>

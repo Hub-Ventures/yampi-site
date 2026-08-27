@@ -7,9 +7,32 @@ export default defineConfig({
   // Sin `www`: lo publicado es yampi.ai (ADR-001 §0.2 bug 3). De aquí salen el
   // canonical, las URLs absolutas de Open Graph y el sitemap.
   site: 'https://yampi.ai',
-  // El sitio en vivo solo declara la home en su sitemap y deja 16 fichas fuera
-  // (ADR-001 §0.2 bug 1). Esta integración las incluye todas.
   integrations: [sitemap()],
+  // Las 16 fichas de /modulos/ se retiraron al pasar el sitio a la arquitectura
+  // real del producto (sistema base + 3 suites + Livia). Estas URLs ya estaban
+  // publicadas, así que en vez de devolver 404 mandan a la página que hoy cubre
+  // ese contenido. En build estático Astro las emite como páginas con
+  // meta-refresh y canonical; si el hosting permite 301 de verdad (_redirects en
+  // Cloudflare/Netlify), conviene duplicarlas ahí.
+  redirects: {
+    '/modulos/comunicaciones': '/sistema-base/',
+    '/modulos/propiedades': '/sistema-base/',
+    '/modulos/calendario': '/sistema-base/',
+    '/modulos/reportes': '/sistema-base/',
+    '/modulos/contactos': '/suites/comercial/',
+    '/modulos/oportunidades': '/suites/comercial/',
+    '/modulos/campanas': '/suites/comercial/',
+    '/modulos/perfil-publico': '/suites/comercial/',
+    '/modulos/centro-ayuda': '/suites/servicio/',
+    '/modulos/sla': '/suites/servicio/',
+    '/modulos/contratos': '/suites/administrativa/',
+    '/modulos/tesoreria': '/suites/administrativa/',
+    '/modulos/livia': '/livia/',
+    // Sin página propia hoy: el home cubre automatizaciones, configuración y búsqueda.
+    '/modulos/automatizaciones': '/',
+    '/modulos/configuracion': '/',
+    '/modulos/busqueda': '/',
+  },
   // Astro 6: CSP nativo — actívalo cuando definas analytics/terceros.
   // security: { csp: true },
   vite: {

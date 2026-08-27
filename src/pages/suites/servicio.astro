@@ -1,0 +1,90 @@
+---
+// Suite Servicio — lo que piden inquilinos y propietarios, con plazo de ley.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import FlowRow from '../../components/FlowRow.astro';
+import Swap from '../../components/Swap.astro';
+import NextCards from '../../components/NextCards.astro';
+import CtaFinal from '../../components/CtaFinal.astro';
+import { reemplaza } from '../../lib/logos.js';
+
+const DESCRIPTION =
+  'Cada solicitud de inquilinos y propietarios entra con su tipo, su responsable y su plazo de ley. El sistema avisa antes de que se venza.';
+
+const bloques = [
+  {
+    num: '01',
+    title: 'Clasificar decide todo lo demás',
+    text: 'Al radicar se define el tipo, el costo estimado y quién responde. De ahí sale el plazo y si hace falta autorización del propietario.',
+    replaces: reemplaza(['Grupos de WhatsApp', 'Zendesk', 'Excel']),
+    shot: { label: 'Clasificación de un requerimiento' },
+    flip: false,
+  },
+  {
+    num: '02',
+    title: 'La autorización queda registrada',
+    text: 'Cuando el gasto es del propietario, la aprobación se pide y se guarda con fecha, monto y quién la dio. Sin cadenas de WhatsApp.',
+    replaces: reemplaza(['Correo', 'Notas de voz', 'Excel']),
+    shot: { label: 'Autorización del propietario' },
+    flip: true,
+  },
+];
+
+const antes = [
+  'La solicitud llega por WhatsApp y se pierde en el grupo',
+  'Nadie sabe si el arreglo lo paga el dueño o el inquilino',
+  'Los plazos de ley se cumplen de memoria',
+  'La autorización del propietario queda en un audio',
+  'El inquilino vuelve a preguntar porque nadie le contestó',
+];
+
+const despues = [
+  'Cada solicitud radicada, con tipo y responsable',
+  'La ley define quién paga y el sistema lo aplica',
+  'El plazo corre solo y avisa antes de vencerse',
+  'La aprobación queda con fecha, monto y quién la dio',
+  'El propietario y el inquilino ven en qué va',
+];
+
+const sigue = [
+  { kicker: 'Livia', href: '/livia/', title: 'Radica desde el chat', text: 'Livia crea el requerimiento con lo que el inquilino contó, sin formulario.', cta: 'Conoce a Livia' },
+  { kicker: 'Sistema base', href: '/sistema-base/', title: 'Chats y documentos', text: 'La bandeja donde entra todo y la biblioteca donde queda el soporte.', cta: 'Ver el sistema base' },
+  { kicker: 'Suite Administrativa', href: '/suites/administrativa/', title: 'Lo que cuesta', text: 'El gasto autorizado entra al reparto del mes del propietario.', cta: 'Ver la suite' },
+];
+---
+<BaseLayout title="Suite Servicio — Requerimientos con plazo y centro de ayuda | Yampi" description={DESCRIPTION}>
+
+  <PageHero
+    accent="blue"
+    badge="Suite Servicio"
+    title="Lo que piden inquilinos<br />y propietarios, con reloj"
+    lede="Cada solicitud entra con su tipo, su responsable y su plazo de ley. Nadie tiene que acordarse de nada: el sistema avisa antes de que se venza."
+    secondaryLabel="Ver la bandeja"
+    secondaryHref="#detalle"
+    shot={{ label: 'Bandeja de requerimientos' }}
+  />
+
+  <section class="section section-paper" id="detalle">
+    <div class="wrap">
+      <h2 class="display-md reveal">De la queja al arreglo autorizado</h2>
+      <p class="lede reveal" style="max-width: 660px; margin-top: 18px;">La ley pone los plazos y define quién paga. Yampi lo aplica sin que nadie lo consulte cada vez.</p>
+      <div class="flow">
+        {bloques.map((b) => <FlowRow {...b} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tint">
+    <div class="wrap">
+      <div class="section-head-center reveal">
+        <h2 class="display-md">Lo que reemplaza</h2>
+        <p class="lede" style="margin-top: 18px;">El grupo de WhatsApp donde se pierden las solicitudes y nadie sabe quién quedó de responder.</p>
+      </div>
+      <Swap antes={antes} despues={despues} narrow />
+    </div>
+  </section>
+
+  <NextCards items={sigue} />
+
+  <CtaFinal />
+</BaseLayout>

@@ -1,0 +1,100 @@
+---
+// Suite Comercial — del interesado que escribe al negocio cerrado.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import FlowRow from '../../components/FlowRow.astro';
+import Swap from '../../components/Swap.astro';
+import NextCards from '../../components/NextCards.astro';
+import CtaFinal from '../../components/CtaFinal.astro';
+import { reemplaza } from '../../lib/logos.js';
+
+const DESCRIPTION =
+  'Cada persona que pregunta queda pegada a un inmueble y a una etapa. Ves cuánto vale lo que está en juego, quién lo atiende y qué falta para cerrarlo.';
+
+const bloques = [
+  {
+    num: '01',
+    title: 'El negocio, con su inmueble',
+    text: 'Cada oportunidad lleva el inmueble, el canon y la etapa. Si el interesado escribe otra vez, la conversación aparece en la misma ficha.',
+    replaces: reemplaza(['Domus', 'SIMI', 'HubSpot']),
+    shot: {
+      src: '/screenshots/oportunidad-detalle.png',
+      alt: 'Ficha de una oportunidad: valor, probabilidad, cierre estimado y actividad de la conversación',
+    },
+    flip: false,
+  },
+  {
+    num: '02',
+    title: 'Contactos que no se pisan',
+    text: 'Propietarios, inquilinos e interesados en una sola base. Cada asesor ve su cartera y nadie trabaja el mismo lead dos veces.',
+    replaces: reemplaza(['Excel', 'Google Sheets', 'Airtable']),
+    shot: {
+      src: '/screenshots/contactos.png',
+      ratio: '918 / 534',
+      alt: 'Tabla de contactos con su etiqueta, su asesor y su última actividad',
+    },
+    flip: true,
+  },
+];
+
+const antes = [
+  'Un CRM que pide campos que no existen en arriendos',
+  'El interesado registrado en la libreta del asesor',
+  'Nadie sabe cuántos negocios hay abiertos hoy',
+  'La visita se cuadra por chat, mensaje por mensaje',
+  'Si el asesor se va, se va su cartera',
+];
+
+const despues = [
+  'Cada negocio con su inmueble, su canon y su etapa',
+  'Contactos en una sola base, con dueño claro',
+  'El tablero dice qué hay abierto y cuánto vale',
+  'El cliente agenda desde un link, sin intermediarios',
+  'La cartera queda en la cuenta, no en un teléfono',
+];
+
+const sigue = [
+  { kicker: 'Livia', href: '/livia/', title: 'Perfila antes de que entres', text: 'La conversación llega calificada al tablero, con lo que el interesado busca.', cta: 'Conoce a Livia' },
+  { kicker: 'Sistema base', href: '/sistema-base/', title: 'Inmuebles y agenda', text: 'El inventario y el calendario que usan todas las suites.', cta: 'Ver el sistema base' },
+  { kicker: 'Suite Administrativa', href: '/suites/administrativa/', title: 'Cuando se cierra', text: 'El negocio ganado pasa a contrato firmado y cobro andando.', cta: 'Ver la suite' },
+];
+---
+<BaseLayout title="Suite Comercial — Oportunidades, contactos y campañas | Yampi" description={DESCRIPTION}>
+
+  <PageHero
+    accent="yampi"
+    badge="Suite Comercial"
+    title="El interesado no se enfría<br />en una hoja de cálculo"
+    lede="Cada persona que pregunta queda pegada a un inmueble y a una etapa. Ves cuánto vale lo que está en juego, quién lo atiende y qué falta para cerrarlo."
+    secondaryLabel="Ver el tablero"
+    secondaryHref="#detalle"
+    shot={{
+      src: '/screenshots/pipeline-tablero.png',
+      alt: 'Tablero de negocios por etapa, con el valor acumulado de cada columna',
+    }}
+  />
+
+  <section class="section section-paper" id="detalle">
+    <div class="wrap">
+      <h2 class="display-md reveal">Del primer mensaje al negocio cerrado</h2>
+      <p class="lede reveal" style="max-width: 660px; margin-top: 18px;">Tres pantallas, un solo hilo: lo que se registra al principio es lo que no hay que volver a preguntar.</p>
+      <div class="flow">
+        {bloques.map((b) => <FlowRow {...b} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tint">
+    <div class="wrap">
+      <div class="section-head-center reveal">
+        <h2 class="display-md">Lo que reemplaza</h2>
+        <p class="lede" style="margin-top: 18px;">El CRM genérico que no sabe de arriendos, y el archivo compartido que nadie sabe cuál es el bueno.</p>
+      </div>
+      <Swap antes={antes} despues={despues} narrow />
+    </div>
+  </section>
+
+  <NextCards items={sigue} />
+
+  <CtaFinal />
+</BaseLayout>

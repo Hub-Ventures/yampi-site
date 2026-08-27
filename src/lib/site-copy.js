@@ -2,12 +2,12 @@ export const SITE_NAME = 'Yampi';
 
 export const YAMPI_APP_URL = import.meta.env.PUBLIC_YAMPI_APP_URL || 'https://app.yampi.ai';
 
-export const HOME_HERO_TITLE = 'Ecosistema IA para operar inmobiliarias';
+export const HOME_HERO_TITLE = 'La IA para inmobiliarias que viven en WhatsApp.';
 
 export const HOME_HERO_DESCRIPTION =
-  'Yampi es una plataforma que conecta atención, arriendos, ventas, contratos y cobros en un solo sistema: IA en tu WhatsApp que califica leads, propiedades enlazadas al embudo, firma electrónica que activa el cobro y tesorería que trabaja sola.';
+  'Livia es la Inteligencia Artificial que opera tus procesos inmobiliarios. Agentes que contestan WhatsApp, perfilan al interesado, levantan el inventario, redactan el contrato y arman el reporte del mes — cada uno con el conocimiento de tu inmobiliaria y los límites que tú le pones.';
 
-export const HOME_PAGE_TITLE = `${SITE_NAME} — ${HOME_HERO_TITLE}`;
+export const HOME_PAGE_TITLE = `${SITE_NAME} — La IA para inmobiliarias que viven en WhatsApp`;
 
 export const YAMPI_CALENDAR = {
   baseUrl: YAMPI_APP_URL,

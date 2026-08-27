@@ -1,0 +1,28 @@
+---
+// Marco de captura de producto. Con `src` muestra la pantalla completa, sin
+// recortarla: la altura la manda la imagen. Sin `src` deja un marco etiquetado
+// con la proporción de las capturas del handoff, para que el layout no cambie
+// cuando entre la definitiva.
+const {
+  src,
+  alt = '',
+  label = 'Pantalla del producto',
+  ratio = '919 / 511',
+  // El hero se carga de inmediato; el resto entra al hacer scroll.
+  priority = false,
+} = Astro.props;
+---
+<div class="shot-frame">
+  {src ? (
+    <img
+      class="shot-img"
+      src={src}
+      alt={alt || label}
+      loading={priority ? 'eager' : 'lazy'}
+      decoding="async"
+      fetchpriority={priority ? 'high' : undefined}
+    />
+  ) : (
+    <div class="shot-ph" style={`aspect-ratio: ${ratio};`}><span>{label}</span></div>
+  )}
+</div>
