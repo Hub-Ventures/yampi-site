@@ -89,9 +89,27 @@ La franja está apagada hasta tener logos reales: cambia `MOSTRAR_LOGOS` en `src
 
 El botón "Agenda una demo" abre el popup del calendario de la app (`YampiCalendar`). El slug y la URL base están en `src/lib/site-copy.js` (`YAMPI_CALENDAR`).
 
+## Deploy (Docker)
+
+Sitio estático: `astro build` → `dist/` servido por nginx.
+
+```bash
+cp .env.example .env   # HOST_PORT=8080
+docker compose up -d --build
+# → http://localhost:8080
+```
+
+| Comando | Qué hace |
+|---|---|
+| `npm run deploy` | `docker compose up -d --build` |
+| `npm run deploy:docker` | Solo `docker compose build` |
+| `HOST_PORT=8080 docker compose up -d --build` | Override de puerto |
+
+Archivos: `Dockerfile`, `docker-compose.yml`, `nginx.conf` (incluye 301 reales de `/modulos/*`).
+
 ## Notas Astro 6
 
-- El sitio es 100% estático (`astro build` → `dist/`); se despliega en cualquier hosting estático (Cloudflare Pages, Netlify, Vercel).
+- El sitio es 100% estático (`astro build` → `dist/`).
 - Cuando se agreguen formularios/analytics, conviene activar el CSP nativo en `astro.config.mjs`: `security: { csp: true }`.
 - La tipografía Inter carga vía Google Fonts (`@import` en `tokens.css`); como mejora se puede migrar a la **Fonts API** de Astro 6 para self-hosting y preload automático.
 - El único JS de cliente es el `IntersectionObserver` de la animación de entrada (en `BaseLayout.astro`) y el toggle del nav.

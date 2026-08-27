@@ -1,0 +1,13 @@
+# Despliegue local / servidor: build estático Astro + nginx.
+# HOST_PORT se puede setear en .env (Dokploy Compose lo genera con Environment).
+
+services:
+  site:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: yampi-site:latest
+    container_name: yampi-site
+    ports:
+      - "${HOST_PORT:-8080}:80"
+    restart: unless-stopped
