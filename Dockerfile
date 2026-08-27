@@ -7,10 +7,10 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-# Serve con nginx
+# Serve con nginx (puerto 4321 = mismo target que el Landing anterior en Dokploy)
 FROM nginx:1.27-alpine AS runtime
 RUN apk update && apk upgrade --no-cache
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/dist /usr/share/nginx/html
-EXPOSE 80
+EXPOSE 4321
 CMD ["nginx", "-g", "daemon off;"]
