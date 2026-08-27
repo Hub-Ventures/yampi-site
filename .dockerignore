@@ -1,0 +1,15 @@
+node_modules
+dist
+.astro
+.git
+.env
+.env.*
+!.env.example
+**/.DS_Store
+.cursor
+.claude
+yampi
+docs
+scripts
+*.md
+!README.md
