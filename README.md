@@ -94,16 +94,18 @@ El botón "Agenda una demo" abre el popup del calendario de la app (`YampiCalend
 Sitio estático: `astro build` → `dist/` servido por nginx.
 
 ```bash
-cp .env.example .env   # HOST_PORT=8080
+cp .env.example .env   # HOST_PORT=4321
 docker compose up -d --build
-# → http://localhost:8080
+# → http://localhost:4321
 ```
 
 | Comando | Qué hace |
 |---|---|
 | `npm run deploy` | `docker compose up -d --build` |
 | `npm run deploy:docker` | Solo `docker compose build` |
-| `HOST_PORT=8080 docker compose up -d --build` | Override de puerto |
+| `HOST_PORT=4321 docker compose up -d --build` | Override de puerto |
+
+**Dokploy:** Compose Path `./docker-compose.yml`. En **Domains** → Service `landing`, Port `4321`.
 
 Archivos: `Dockerfile`, `docker-compose.yml`, `nginx.conf` (incluye 301 reales de `/modulos/*`).
 
