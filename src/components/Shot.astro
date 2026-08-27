@@ -1,22 +1,42 @@
 ---
-// Marco de captura de producto. Con `src` muestra la pantalla completa, sin
-// recortarla: la altura la manda la imagen. Sin `src` deja un marco etiquetado
-// con la proporción de las capturas del handoff, para que el layout no cambie
-// cuando entre la definitiva.
+// Marco de captura de producto.
+//
+// Las capturas se generan a 2× desde el proyecto de diseño y se sirven en dos
+// anchos (1100 y 2200 px) con `srcset`, porque el mismo archivo se usa en un
+// hero de ~1084 px CSS y en un marco lateral de ~520 px: sin esto, o el hero se
+// ve pixelado en pantallas Retina o el marco lateral descarga el doble de lo que
+// necesita. `sizes` le dice al navegador cuál bajar.
+//
+// Sin `src` queda un marco etiquetado de la misma proporción, para que el layout
+// no cambie cuando entre la captura definitiva.
 const {
   src,
   alt = '',
   label = 'Pantalla del producto',
-  ratio = '919 / 511',
-  // El hero se carga de inmediato; el resto entra al hacer scroll.
+  // Proporción nativa de la captura. Reserva el espacio y evita saltos de layout.
+  ratio = '1500 / 900',
+  // Ancho de presentación. 'hero' ocupa el ancho del contenedor; 'half' es la
+  // mitad de la grilla de dos columnas.
+  size = 'half',
   priority = false,
 } = Astro.props;
+
+const [w, h] = ratio.split('/').map((n) => Number(n.trim()));
+const base = src?.replace(/\.webp$/, '');
+const sizes =
+  size === 'hero'
+    ? '(min-width: 1200px) 1084px, (min-width: 560px) calc(100vw - 108px), calc(100vw - 60px)'
+    : '(min-width: 900px) 520px, (min-width: 560px) calc(100vw - 84px), calc(100vw - 60px)';
 ---
 <div class="shot-frame">
   {src ? (
     <img
       class="shot-img"
       src={src}
+      srcset={`${base}-1100.webp 1100w, ${base}.webp 2200w`}
+      sizes={sizes}
+      width={w}
+      height={h}
       alt={alt || label}
       loading={priority ? 'eager' : 'lazy'}
       decoding="async"

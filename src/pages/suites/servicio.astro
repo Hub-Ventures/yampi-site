@@ -17,7 +17,11 @@ const bloques = [
     title: 'Clasificar decide todo lo demás',
     text: 'Al radicar se define el tipo, el costo estimado y quién responde. De ahí sale el plazo y si hace falta autorización del propietario.',
     replaces: reemplaza(['Grupos de WhatsApp', 'Zendesk', 'Excel']),
-    shot: { label: 'Clasificación de un requerimiento' },
+    shot: {
+      src: '/screenshots/serv-clasificar.webp',
+      ratio: '1500 / 940',
+      alt: 'Ventana de clasificación de un requerimiento: costo estimado y quién responde según la ley',
+    },
     flip: false,
   },
   {
@@ -25,7 +29,11 @@ const bloques = [
     title: 'La autorización queda registrada',
     text: 'Cuando el gasto es del propietario, la aprobación se pide y se guarda con fecha, monto y quién la dio. Sin cadenas de WhatsApp.',
     replaces: reemplaza(['Correo', 'Notas de voz', 'Excel']),
-    shot: { label: 'Autorización del propietario' },
+    shot: {
+      src: '/screenshots/serv-autorizacion.webp',
+      ratio: '1500 / 940',
+      alt: 'Solicitud de autorización al propietario, con el monto y el registro de quién aprueba',
+    },
     flip: true,
   },
 ];
@@ -61,7 +69,11 @@ const sigue = [
     lede="Cada solicitud entra con su tipo, su responsable y su plazo de ley. Nadie tiene que acordarse de nada: el sistema avisa antes de que se venza."
     secondaryLabel="Ver la bandeja"
     secondaryHref="#detalle"
-    shot={{ label: 'Bandeja de requerimientos' }}
+    shot={{
+      src: '/screenshots/serv-bandeja.webp',
+      ratio: '1500 / 940',
+      alt: 'Bandeja de requerimientos con su estado, su responsable legal y el plazo de cada uno',
+    }}
   />
 
   <section class="section section-paper" id="detalle">

@@ -18,7 +18,8 @@ const superficies = [
     text: 'WhatsApp, Instagram, el chat de tu página y el correo caen en el mismo lugar, y todo el equipo ve la misma conversación.',
     replaces: reemplaza(['WhatsApp Business', 'Gmail', 'Instagram Direct']),
     shot: {
-      src: '/screenshots/chat-bandeja.png',
+      src: '/screenshots/chat-bandeja.webp',
+      ratio: '1500 / 1047',
       alt: 'Bandeja de conversaciones con la ficha del contacto y la propiedad de interés',
     },
     flip: false,
@@ -28,7 +29,11 @@ const superficies = [
     title: 'Los documentos son de todos',
     text: 'La biblioteca guarda contratos, soportes y anexos. Quien necesita un documento lo tiene a la mano, no lo pide por chat.',
     replaces: reemplaza(['Google Drive', 'Dropbox', 'Carpetas compartidas']),
-    shot: { label: 'Biblioteca de documentos' },
+    shot: {
+      src: '/screenshots/documentos.webp',
+      ratio: '1280 / 820',
+      alt: 'Biblioteca de documentos: contratos, soportes y anexos con su estado',
+    },
     flip: true,
   },
 ];
@@ -64,7 +69,11 @@ const sigue = [
     lede="Los chats, los inmuebles, la agenda, los documentos y los informes. Están siempre a la mano, para cualquiera del equipo."
     secondaryLabel="Ver qué incluye"
     secondaryHref="#incluye"
-    shot={{ label: 'Inventario de propiedades' }}
+    shot={{
+      src: '/screenshots/propiedades.webp',
+      ratio: '1440 / 880',
+      alt: 'Inventario de propiedades con precio, características, estado y encargado de cada inmueble',
+    }}
   />
 
   <section class="section section-paper" id="incluye">

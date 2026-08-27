@@ -5,7 +5,7 @@ import PageHero from '../components/PageHero.astro';
 import Swap from '../components/Swap.astro';
 import NextCards from '../components/NextCards.astro';
 import CtaFinal from '../components/CtaFinal.astro';
-import Replaces from '../components/Replaces.astro';
+import FlowRow from '../components/FlowRow.astro';
 import { reemplaza } from '../lib/logos.js';
 
 const DESCRIPTION =
@@ -20,18 +20,33 @@ const capas = [
     title: 'Lo que sabe',
     text: 'Le cargas los documentos, las preguntas frecuentes y los escenarios de tu inmobiliaria. Responde con eso, no con lo que se imagine.',
     replaces: reemplaza(['ChatGPT', 'Notion', 'Manual de inducción']),
+    shot: {
+      src: '/screenshots/livia-conocimiento.webp',
+      alt: 'Pestaña de conocimiento de un agente: documentos, preguntas frecuentes y escenarios cargados',
+    },
+    flip: false,
   },
   {
     num: '02',
     title: 'Lo que puede hacer',
     text: 'Habilidades y herramientas: consultar el inventario, agendar una visita, mirar un pago, crear el requerimiento. Tú eliges cuáles quedan activas.',
     replaces: reemplaza(['Zapier', 'Make', 'n8n']),
+    shot: {
+      src: '/screenshots/livia-acciones.webp',
+      alt: 'Pestaña de acciones: sub-agentes con las herramientas que cada uno puede usar',
+    },
+    flip: true,
   },
   {
     num: '03',
     title: 'Cómo se comporta',
     text: 'Pautas de respuesta y protecciones. Cómo saluda, qué no debe decir y en qué momento pasa la conversación a una persona.',
     replaces: reemplaza(['ManyChat', 'Guiones en Word']),
+    shot: {
+      src: '/screenshots/livia-comportamiento.webp',
+      alt: 'Pestaña de comportamiento: pautas de respuesta, protecciones y cuándo escalar a una persona',
+    },
+    flip: false,
   },
 ];
 
@@ -85,8 +100,8 @@ const sigue = [
     secondaryLabel="Cómo se configura"
     secondaryHref="#agentes"
     shot={{
-      src: '/screenshots/chat-oscuro.png',
-      alt: 'Livia respondiendo una conversación de WhatsApp dentro de la bandeja de Yampi',
+      src: '/screenshots/livia-lista.webp',
+      alt: 'Lista de agentes de Livia configurados, cada uno con su estado y su alcance',
     }}
   />
 
@@ -94,15 +109,8 @@ const sigue = [
     <div class="wrap">
       <h2 class="display-md reveal">Un agente se arma en tres capas</h2>
       <p class="lede reveal" style="max-width: 660px; margin-top: 18px;">Qué sabe, qué puede hacer y cómo se comporta. Las tres se editan sin escribir código.</p>
-      <div class="layer-grid reveal">
-        {capas.map((c) => (
-          <div class="layer-card">
-            <span class="layer-num">{c.num}</span>
-            <h3>{c.title}</h3>
-            <p>{c.text}</p>
-            <Replaces items={c.replaces} />
-          </div>
-        ))}
+      <div class="flow">
+        {capas.map((c) => <FlowRow {...c} />)}
       </div>
     </div>
   </section>

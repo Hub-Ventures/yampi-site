@@ -17,7 +17,11 @@ const bloques = [
     title: 'Se firma por WhatsApp',
     text: 'El firmante recibe un código, firma desde el teléfono y queda el certificado con hora y verificación. Sin instalar nada.',
     replaces: reemplaza(['DocuSign', 'Firma en papel', 'Correo']),
-    shot: { label: 'Constructor de contratos con firma electrónica' },
+    shot: {
+      src: '/screenshots/contrato.webp',
+      ratio: '1280 / 840',
+      alt: 'Constructor de contratos: firmantes, campos de firma y datos sobre el documento',
+    },
     flip: false,
   },
   {
@@ -25,7 +29,11 @@ const bloques = [
     title: 'Quién pagó y quién no',
     text: 'La cartera por días de mora, con el saldo de cada ciclo. Ves la mora antes de que se vuelva un problema de tres meses.',
     replaces: reemplaza(['Excel', 'Arrendasoft', 'Softinm']),
-    shot: { label: 'Reporte de cartera por días de mora' },
+    shot: {
+      src: '/screenshots/cartera.webp',
+      ratio: '1600 / 1000',
+      alt: 'Cartera por antigüedad: saldo por tramo de mora y contratos seleccionados para cobro',
+    },
     flip: true,
   },
 ];
@@ -62,8 +70,9 @@ const sigue = [
     secondaryLabel="Ver tesorería"
     secondaryHref="#detalle"
     shot={{
-      src: '/screenshots/tesoreria.png',
-      alt: 'Reglas operativas de tesorería: moneda, día de cobro, días de gracia y automatización del cobro',
+      src: '/screenshots/tesoreria.webp',
+      ratio: '1600 / 1000',
+      alt: 'Resumen de tesorería: recaudos, dispersiones y estado de la cartera del mes',
     }}
   />
 

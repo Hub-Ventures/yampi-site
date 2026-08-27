@@ -648,29 +648,6 @@ body.nav-locked { overflow: hidden; }
 }
 .replaces-name { font-size: 15px; font-weight: var(--fw-medium); color: var(--fg-heading); }
 
-/* ——— Las tres capas de un agente ——— */
-.layer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 44px; }
-.layer-card {
-  display: flex;
-  flex-direction: column;
-  background: var(--bg-card);
-  border: 1px solid var(--border-container);
-  border-radius: var(--radius-lg);
-  padding: 28px 24px;
-}
-.layer-num { font-size: 15px; font-weight: var(--fw-semibold); color: var(--fg-secondary); }
-.layer-card h3 {
-  font-size: 24px;
-  font-weight: var(--fw-bold);
-  line-height: 1.18;
-  letter-spacing: -0.02em;
-  color: var(--fg-heading);
-  margin: 10px 0 12px;
-  text-wrap: balance;
-}
-.layer-card p { font-size: var(--fs-md); line-height: 1.6; color: var(--fg-body); text-wrap: pretty; }
-.layer-card .replaces { margin-top: auto; padding-top: 22px; }
-
 /* ——— Límites del agente ——— */
 .control-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 44px; }
 .control-card {
@@ -839,7 +816,7 @@ body.nav-locked { overflow: hidden; }
 @media (max-width: 1000px) {
   .arch-surfaces { grid-template-columns: repeat(2, 1fr); }
   .arch-suites { grid-template-columns: 1fr; }
-  .layer-grid, .control-grid, .next-grid { grid-template-columns: 1fr; }
+  .control-grid, .next-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 900px) {
