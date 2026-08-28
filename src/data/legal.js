@@ -370,6 +370,131 @@ export const PRIVACIDAD = {
         },
       ],
     },
+    // ─────────────────────────────────────────────────────────────────────
+    // SECCIÓN NUEVA — no viene de la landing anterior.
+    //
+    // La exige la verificación OAuth de Google (proyecto yampi-463200). Sus
+    // cinco sub-secciones responden punto por punto lo que pidió el equipo de
+    // Third Party Data Safety: datos accedidos, uso, compartición,
+    // almacenamiento/protección y retención/eliminación.
+    //
+    // Cada afirmación se verificó contra el monorepo:
+    //   scope calendar.events ....... GoogleCalendarController#auth_url
+    //   ventana 30/30 ............... GoogleCalendarAdapter::IMPORT_*_HORIZON
+    //   credenciales cifradas ....... CalendarProviderConnection `encrypts`
+    //   borrado en cascada .......... User `dependent: :destroy_async`
+    //   contexto al LLM ............. Captain::Copilot::CalendarPromptContext
+    //
+    // No agregar aquí capacidades que el producto no tenga: Google compara la
+    // política contra el comportamiento real.
+    // ─────────────────────────────────────────────────────────────────────
+    {
+      title: 'Integración con Google Calendar',
+      paras: [
+        'Yampi ofrece una integración opcional con Google Calendar. Solo se activa si usted la conecta desde Configuración → Calendario, y puede desconectarla cuando quiera. Esta sección describe en detalle cómo tratamos los datos que obtenemos de las APIs de Google.',
+      ],
+      sub: [
+        {
+          title: '1. Datos a los que accedemos',
+          paras: [
+            'Solicitamos un único permiso: ver y editar eventos de su calendario (https://www.googleapis.com/auth/calendar.events). Es el permiso más acotado que permite la función. Sobre su calendario principal accedemos a:',
+          ],
+          items: [
+            'Datos del evento: título, descripción, fecha y hora de inicio y fin, estado (confirmado, cancelado) y ubicación',
+            'Participantes: correo electrónico, nombre visible y estado de respuesta a la invitación',
+            'Enlaces de videoconferencia: enlaces de Google Meet asociados al evento',
+            'Propiedades extendidas privadas, que usamos para etiquetar el evento con el identificador interno de Yampi y mantener la correlación entre ambos sistemas',
+            'Disponibilidad (FreeBusy): únicamente bloques de tiempo ocupado, sin contenido de los eventos',
+            'Tokens de sincronización incremental que provee Google',
+          ],
+        },
+        {
+          title: 'Datos a los que NO accedemos',
+          paras: [
+            'No accedemos a la lista de sus calendarios ni a calendarios secundarios o compartidos, a la información de su perfil de Google, a la configuración de su cuenta, a las listas de control de acceso, ni a ningún dato fuera del permiso calendar.events.',
+            'La importación se limita a una ventana de 30 días hacia el pasado y 30 días hacia el futuro, tanto en la sincronización inicial como en las incrementales.',
+          ],
+        },
+        {
+          title: '2. Cómo usamos estos datos',
+          paras: ['Los datos de Google Calendar se usan exclusivamente dentro de Yampi, para estas funciones visibles en el producto:'],
+          items: [
+            'Sincronización bidireccional: lo que crea, edita o cancela en Yampi se refleja en su Google Calendar, y lo que cambia en Google Calendar se importa a Yampi',
+            'Disponibilidad y reservas: consultamos FreeBusy para calcular sus horarios libres y evitar reservas dobles cuando alguien agenda desde un enlace público. Quien agenda solo ve bloques ocupado/libre, nunca el contenido de sus eventos',
+            'Enlaces de Google Meet: para eventos de tipo videollamada, pedimos a Google que genere el enlace y lo mostramos en la ficha del evento',
+            'Sincronización casi en tiempo real: registramos un canal de notificaciones de Google que nos avisa de los cambios, en lugar de esperar al ciclo de reconciliación',
+            'Coincidencia de contactos: los correos de los participantes se usan para encontrar o crear la ficha de contacto correspondiente dentro de su misma cuenta de Yampi',
+            'Asistente de IA: si usa el asistente, este puede consultar, crear, modificar o cancelar eventos cuando usted se lo pide en la conversación',
+          ],
+        },
+        {
+          title: '3. Con quién compartimos estos datos',
+          paras: [
+            'No compartimos datos de Google con terceros para publicidad, analítica ni fines comerciales. Ningún servicio de analítica, publicidad o rastreo recibe información de su calendario, y no la vendemos.',
+            'Los datos están aislados por cuenta y por usuario: no es posible el acceso entre cuentas. El contenido completo del evento que devuelve Google se guarda internamente y nunca se expone a través de nuestra API pública, que solo devuelve el proveedor, el identificador externo, el estado de sincronización y la fecha de la última sincronización.',
+            'Compartimos datos de forma limitada con dos categorías de proveedores, obligados por contrato a protegerlos y a no usarlos para ningún otro fin:',
+          ],
+          items: [
+            'Infraestructura: alojamiento y base de datos (Amazon Web Services) y caché en memoria (Redis), únicamente para operar el servicio',
+            'Modelos de inteligencia artificial: cuando usa el asistente, enviamos al proveedor de IA configurado en su cuenta —Google (Gemini), Anthropic u OpenAI, a elección suya— solo la información del calendario necesaria para responder a su solicitud: identificador, título, estado y horario del evento, y los criterios de búsqueda que usted indique. Se envía en el momento de responder y no se usa para entrenar ni mejorar modelos',
+          ],
+        },
+        {
+          title: '4. Almacenamiento y protección',
+          paras: [
+            'Los datos se guardan en nuestra base de datos, siempre asociados a su cuenta y a su usuario. Las credenciales de acceso (tokens de acceso y de actualización) se almacenan en una columna cifrada mediante el cifrado de Rails, nunca en texto plano. El resto de la información de calendario se guarda en columnas protegidas por el cifrado en reposo del proveedor de base de datos.',
+          ],
+          items: [
+            'Los tokens de acceso se renuevan automáticamente antes de expirar. Si Google informa que un token fue revocado, la conexión se marca como revocada y la sincronización se detiene',
+            'El flujo de autorización usa un parámetro de estado firmado y con vencimiento, para impedir ataques de falsificación de petición durante el retorno de Google',
+            'El aislamiento entre cuentas y entre usuarios se aplica a nivel de consulta a la base de datos',
+            'Toda la comunicación con las APIs de Google usa HTTPS/TLS, y el punto de entrada de notificaciones solo acepta conexiones HTTPS',
+            'Los resultados de disponibilidad se guardan en caché por pocos minutos; ningún contenido de los eventos se almacena fuera de la base de datos',
+          ],
+        },
+        {
+          title: 'Incidentes de seguridad',
+          paras: [
+            'Ante una vulneración confirmada o sospechada que afecte datos de Google, notificaremos a los usuarios afectados sin demora indebida y dentro de los plazos que exija la ley aplicable, e investigaremos y contendremos el incidente. Si detecta o sospecha un acceso no autorizado a los datos de su calendario, escríbanos a hola@yampi.ai.',
+          ],
+        },
+        {
+          title: '5. Retención y eliminación',
+          paras: [
+            'Conservamos los datos importados mientras la integración esté conectada y su cuenta exista. Solo mantenemos eventos dentro de la ventana de 30 días hacia atrás y 30 hacia adelante; los eventos ya realizados se marcan como completados y quedan como referencia histórica dentro de su cuenta. La reconciliación periódica corre cada 15 minutos, con las notificaciones de Google cubriendo los cambios intermedios.',
+            'Puede eliminar estos datos por cualquiera de estas vías:',
+          ],
+          items: [
+            'Desconectar Google Calendar desde la configuración de su perfil: se detiene el canal de notificaciones y se eliminan todas las credenciales de acceso. Además puede solicitarnos que, al desconectar, purguemos los eventos, participantes y vínculos ya importados',
+            'Eliminar su usuario o la cuenta de la organización: todos los datos de calendario asociados se borran de forma permanente y en cascada',
+            'Retirar el permiso desde la configuración de seguridad de su cuenta de Google: Yampi lo detecta en el siguiente intento de renovación, marca la conexión como revocada y deja de acceder a sus datos',
+            'Solicitud directa a legal@yampi.ai: procesamos y confirmamos la solicitud dentro de los 30 días siguientes',
+          ],
+        },
+        {
+          title: 'Portabilidad',
+          paras: [
+            'Puede solicitar una copia de sus datos de Google Calendar almacenados en Yampi escribiendo a data@yampi.ai.',
+          ],
+        },
+        {
+          title: 'Cambios en esta integración',
+          paras: [
+            'Si cambiamos la manera en que accedemos, usamos, almacenamos o compartimos datos de Google de un modo que esta política no cubra, actualizaremos esta política y avisaremos a los usuarios afectados antes de aplicar el cambio. Se le pedirá aceptar la política actualizada antes de que Yampi acceda a sus datos bajo los nuevos términos.',
+          ],
+        },
+        {
+          title: 'Declaración de Uso Limitado',
+          paras: [
+            'El uso y la transferencia por parte de Yampi de datos de usuario, en bruto o derivados, recibidos de las APIs de Google se ajustará a la Política de Datos de Usuario de los Servicios de la API de Google, incluidos los requisitos de Uso Limitado. En particular, Yampi no utiliza ni transfiere estos datos para desarrollar, mejorar ni entrenar modelos generalizados de inteligencia artificial o aprendizaje automático, ni para publicidad de ningún tipo.',
+          ],
+          // Google revisa en inglés y compara contra su redacción de ejemplo:
+          // va literal para que el revisor la reconozca sin ambigüedad.
+          quote:
+            'The use and transfer of raw or derived user data received from Google APIs by Yampi will adhere to the Google API Services User Data Policy, including the Limited Use requirements. Yampi does not use or transfer this data to develop, improve, or train generalized AI and/or ML models.',
+        },
+      ],
+    },
     {
       title: 'Cookies y Tecnologías Similares',
       sub: [

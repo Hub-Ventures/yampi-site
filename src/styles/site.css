@@ -804,6 +804,18 @@ body.nav-locked { overflow: hidden; }
   color: var(--fg-body);
   margin-top: 4px;
 }
+/* La redacción canónica en inglés de Google. Se destaca para que un revisor la
+   encuentre de un vistazo. */
+.legal-section blockquote {
+  margin-top: 14px;
+  padding: 16px 20px;
+  border-left: 3px solid var(--yampi-9);
+  background: var(--yampi-1);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-size: var(--fs-base);
+  line-height: 1.7;
+  color: var(--fg-heading);
+}
 .legal-defs { margin-top: 4px; }
 .legal-defs > div { margin-top: 18px; }
 .legal-defs dt {
