@@ -757,6 +757,70 @@ body.nav-locked { overflow: hidden; }
 .cta-final { text-align: center; padding: 110px 0; }
 .cta-final .lede { max-width: 640px; margin: 20px auto 0; color: rgba(255, 255, 255, 0.72); }
 
+/* ——— Documentos legales ——— */
+.legal { padding: 176px 0 96px; background: var(--bg-card); }
+.legal-head { padding-bottom: 28px; border-bottom: 1px solid var(--border-weak); }
+.legal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  margin-top: 20px;
+  font-size: var(--fs-base);
+  color: var(--fg-secondary);
+}
+.legal-meta > div { display: flex; gap: 6px; }
+.legal-meta dt::after { content: ':'; }
+.legal-meta dd { color: var(--fg-body); }
+.legal-entity {
+  margin-top: 18px;
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.08em;
+  color: var(--fg-heading);
+}
+.legal-section { margin-top: 44px; }
+.legal-section h2 {
+  font-size: 21px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.015em;
+  color: var(--fg-heading);
+  margin-bottom: 16px;
+  text-wrap: balance;
+}
+.legal-sub { margin-top: 26px; }
+.legal-section h3 {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  color: var(--fg-heading);
+  margin-bottom: 8px;
+}
+/* Interlineado alto: son párrafos largos que la gente lee de corrido. */
+.legal-section p { font-size: var(--fs-md); line-height: 1.75; color: var(--fg-body); }
+.legal-section p + p { margin-top: 12px; }
+.legal-section ul { margin-top: 10px; padding-left: 20px; }
+.legal-section li {
+  font-size: var(--fs-md);
+  line-height: 1.75;
+  color: var(--fg-body);
+  margin-top: 4px;
+}
+.legal-defs { margin-top: 4px; }
+.legal-defs > div { margin-top: 18px; }
+.legal-defs dt {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  color: var(--fg-heading);
+  margin-bottom: 4px;
+}
+.legal-defs dd { font-size: var(--fs-md); line-height: 1.75; color: var(--fg-body); }
+.legal-contact { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border-weak); }
+.legal-contact address { font-style: normal; font-size: var(--fs-md); line-height: 1.75; color: var(--fg-body); }
+.legal-contact a { color: var(--fg-brand); text-decoration: underline; text-underline-offset: 2px; }
+
+@media (max-width: 768px) {
+  .legal { padding: 128px 0 64px; }
+}
+
 /* ——— Footer ——— */
 .footer {
   background: var(--bg-sidebar);
@@ -784,6 +848,8 @@ body.nav-locked { overflow: hidden; }
   font-size: var(--fs-sm);
   color: rgba(255, 255, 255, 0.4);
 }
+.footer-legal { display: flex; flex-wrap: wrap; gap: 20px; }
+.footer-legal a { line-height: 1.4; }
 
 /* ——— Animación de entrada sobria ——— */
 @media (prefers-reduced-motion: no-preference) {

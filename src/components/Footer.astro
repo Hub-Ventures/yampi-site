@@ -23,7 +23,12 @@ const year = new Date().getFullYear();
     </div>
     <div class="footer-bottom">
       <span>© {year} Yampi. Todos los derechos reservados.</span>
-      <span>Hecho para el sector inmobiliario latinoamericano</span>
+      {/* Los legales tienen que ser alcanzables desde cualquier página: el
+          signup de la app enlaza a /terms y /privacy. */}
+      <nav class="footer-legal" aria-label="Legal">
+        <a href="/terms/">Términos y Condiciones</a>
+        <a href="/privacy/">Política de Privacidad</a>
+      </nav>
     </div>
   </div>
 </footer>

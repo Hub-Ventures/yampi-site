@@ -1,0 +1,55 @@
+---
+// Documento legal. Renderiza la estructura recuperada de src/data/legal.js:
+// secciones numeradas, subsecciones, listas de viñetas y la lista de
+// definiciones de los Términos.
+const { doc } = Astro.props;
+---
+<section class="legal">
+  <div class="wrap-narrow">
+    <header class="legal-head">
+      <h1 class="display-md">{doc.title}</h1>
+      <dl class="legal-meta">
+        <div><dt>{doc.actualizadoLabel}</dt><dd>{doc.actualizado}</dd></div>
+        <div><dt>{doc.vigenciaLabel}</dt><dd>{doc.vigencia}</dd></div>
+      </dl>
+      {doc.entidad && <p class="legal-entity">{doc.entidad}</p>}
+    </header>
+
+    {doc.sections.map((s) => (
+      <section class="legal-section">
+        <h2>{s.title}</h2>
+        {s.paras?.map((p) => <p>{p}</p>)}
+
+        {s.definiciones && (
+          <dl class="legal-defs">
+            {s.definiciones.map((d) => (
+              <div>
+                <dt>{d.term}</dt>
+                <dd>{d.desc}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
+
+        {s.sub?.map((sub) => (
+          <div class="legal-sub">
+            <h3>{sub.title}</h3>
+            {sub.paras?.map((p) => <p>{p}</p>)}
+            {sub.items && (
+              <ul>
+                {sub.items.map((i) => <li>{i}</li>)}
+              </ul>
+            )}
+          </div>
+        ))}
+      </section>
+    ))}
+
+    <section class="legal-section legal-contact">
+      <h2>{doc.contacto.title}</h2>
+      <p>{doc.contacto.empresa}</p>
+      <address>{doc.contacto.direccion}</address>
+      <p><a href={`mailto:${doc.contacto.email}`}>{doc.contacto.email}</a></p>
+    </section>
+  </div>
+</section>

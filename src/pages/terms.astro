@@ -1,0 +1,13 @@
+---
+// Términos y Condiciones. La ruta es /terms/ (sin locale) porque es la que
+// enlaza el signup de app.yampi.ai; /es/terms y /en/terms redirigen aquí.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LegalPage from '../components/LegalPage.astro';
+import { TERMINOS } from '../data/legal.js';
+---
+<BaseLayout
+  title="Términos y Condiciones | Yampi"
+  description="Términos y condiciones de uso de la plataforma Yampi."
+>
+  <LegalPage doc={TERMINOS} />
+</BaseLayout>

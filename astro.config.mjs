@@ -32,6 +32,16 @@ export default defineConfig({
     '/modulos/automatizaciones': '/',
     '/modulos/configuracion': '/',
     '/modulos/busqueda': '/',
+
+    // La landing anterior servía los legales bajo locale (/es/, /en/). El sitio
+    // nuevo es de un solo idioma y los publica sin prefijo, que además es la
+    // ruta que enlaza el signup de app.yampi.ai.
+    '/es/terms': '/terms/',
+    '/en/terms': '/terms/',
+    '/es/privacy': '/privacy/',
+    '/en/privacy': '/privacy/',
+    '/terminos': '/terms/',
+    '/privacidad': '/privacy/',
   },
   // Astro 6: CSP nativo — actívalo cuando definas analytics/terceros.
   // security: { csp: true },
