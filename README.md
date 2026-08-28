@@ -85,6 +85,23 @@ Los logotipos viven en `public/logos/` y se mapean en `src/lib/logos.js`. Un nom
 
 La franja está apagada hasta tener logos reales: cambia `MOSTRAR_LOGOS` en `src/pages/index.astro` y reemplaza los `<div class="logo-ph">` por `<img>` (sugerido: SVG monocromos de ~48 px de alto).
 
+### Textos legales
+
+`/terms/` y `/privacy/` salen de `src/data/legal.js`, recuperado literalmente de la
+landing anterior (`Hub-Ventures/landing`, `src/i18n/locales/es.ts`). Las rutas van **sin
+prefijo de idioma** porque son las que enlaza el signup de `app.yampi.ai`; `/es/terms`,
+`/en/terms`, `/terminos` y sus equivalentes de privacidad redirigen ahí.
+
+No editar la redacción sin pasar por Legal. Si cambia el texto, actualizar también
+`actualizado` y `vigencia` en el mismo archivo.
+
+La sección **«Integración con Google Calendar»** de la política es nueva (no viene de la
+landing anterior): la exige la verificación OAuth de Google. Describe el scope
+`calendar.events` y lleva la declaración de Uso Limitado en su redacción canónica en
+inglés. Si cambia el scope que pide el backend, o si se agregan los endpoints de
+exportación y borrado, hay que actualizar esa sección — la política no puede prometer
+lo que el producto no hace.
+
 ## Datos de contacto y demo
 
 El botón "Agenda una demo" abre el popup del calendario de la app (`YampiCalendar`). El slug y la URL base están en `src/lib/site-copy.js` (`YAMPI_CALENDAR`).

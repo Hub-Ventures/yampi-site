@@ -1,0 +1,13 @@
+---
+// Política de Privacidad. La ruta es /privacy/ (sin locale) porque es la que
+// enlaza el signup de app.yampi.ai; /es/privacy y /en/privacy redirigen aquí.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LegalPage from '../components/LegalPage.astro';
+import { PRIVACIDAD } from '../data/legal.js';
+---
+<BaseLayout
+  title="Política de Privacidad | Yampi"
+  description="Cómo Yampi recopila, usa, comparte y protege tus datos personales."
+>
+  <LegalPage doc={PRIVACIDAD} />
+</BaseLayout>

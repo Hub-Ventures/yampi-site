@@ -23,7 +23,14 @@ const year = new Date().getFullYear();
     </div>
     <div class="footer-bottom">
       <span>© {year} Yampi. Todos los derechos reservados.</span>
-      <span>Hecho para el sector inmobiliario latinoamericano</span>
+      {/* Sin barra final, a propósito: la verificación OAuth de Google compara
+          carácter por carácter la URL de la Cloud Console
+          (https://yampi.ai/privacy) contra la enlazada en la home, y ya rechazó
+          una vez por ese desajuste. El signup de la app enlaza a las mismas. */}
+      <nav class="footer-legal" aria-label="Legal">
+        <a href="/terms">Términos y Condiciones</a>
+        <a href="/privacy">Política de Privacidad</a>
+      </nav>
     </div>
   </div>
 </footer>
